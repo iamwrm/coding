@@ -1,0 +1,4 @@
+This is the MATLAB code for Lab 1 by Ren Wang StuID:516370910177
+The MagMatrix function in the root folder is the one with for loop
+I put the while loop one in the 'Mag_Version2' folder 
+so that i don't need to change the name of the function.
