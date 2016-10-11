@@ -18,24 +18,15 @@ end
 a(a(:)==0)=-1;
 a=num2str(a,'%-d');
 
-
-
 for i1=1:n+1
 a(i1,:)=strrep(a(i1,:),'-1','  ');
 end
-
 
 fileID=fopen('a.txt','w+');
  for i1=1:n+1
 fprintf(fileID,'%s\r\n',a(i1,:));
 
 end
-
-
-
-
-
 clear
-
 end
 
