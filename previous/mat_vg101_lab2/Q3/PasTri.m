@@ -29,4 +29,4 @@ fprintf(fileID,'%s\r\n',a(i1,:));
 end
 clear
 end
-
+    
