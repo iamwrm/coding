@@ -1,26 +1,23 @@
 clear
 clc
 
+
 while 1
     
-
 input_function=input('Input function:','s');
                % I LOVE LAB
 if strcmp(input_function,'I LOVE LAB')
 	break
 end
 
-
 input_accuracy=input('Input accuracy:','s');
 if strcmp(input_accuracy,'I LOVE LAB')
 	break
 end
 
-
 %input_function='-78*x.^4+x.^3+1*x.^2-6*x;';
 
 input_accuracy=str2num(input_accuracy);
-
 
 syms f(x);
 eval(['f(x)=' input_function ';']);
@@ -28,23 +25,18 @@ d_f=diff(f);
 x0=(rand-0.5)*10;   %arbitrary point between -5 to 5
 
 if 0
-while 1
-    
-    x0=-(f(x0))/(d_f(x0))+x0;
-    
-    if abs(f(x0))<input_accuracy
-    	break
-    end
-end
-
+	while 1
+	    x0=-(f(x0))/(d_f(x0))+x0;
+	    if abs(f(x0))<input_accuracy
+	    	break
+	    end
+	end
 end
 x0=double(x0);
 f1=input_function;
 
-
 f1=strrep(f1,'-','minus ');
 f1=strrep(f1,'+','plus ') ;
-
 
 f1=strrep(f1,'10*'	,'ten times ');
 f1=strrep(f1,'11*'	,'eleven times ');
@@ -147,8 +139,6 @@ f1=strrep(f1,'7*'	,'seven times ');
 f1=strrep(f1,'8*'	,'eight times ');
 f1=strrep(f1,'9*'	,'nine times ');
 
-
-
 f1=strrep(f1,';',' ');
 
 f1=strrep(f1,'x','x ');
@@ -183,12 +173,6 @@ f1=strrep(f1,'x .^8','the eighth power of x ');
 f1=strrep(f1,'x .^9','the ninth power of x ');
 f1=strrep(f1,'x .^10','the tenth power of x ');
 
-
-
-
-
 disp(['an approximate zero point of y equals to ' f1 'is ' num2str(x0)]);
-
-
 
 end
