@@ -1,5 +1,6 @@
 clear
 syms x
-f(x)=-78*x.^4+x.^3+1*x.^2-6*x
+input_function='+x.^3+66*x^3-78*x.^4-6*x+1*x.^2';
+eval(['f(x)=' input_function ';']);
 
-sym2char(f)
+sym2poly(f(x))
