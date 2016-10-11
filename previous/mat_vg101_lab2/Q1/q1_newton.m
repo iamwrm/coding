@@ -6,13 +6,13 @@ while 1
 
 input_function=input('Input function:','s');
                % I LOVE LAB
-if input_function(1,1)=='I' && input_function(1,10)=='B'
+if strcmp(input_function,'I LOVE LAB')
 	break
 end
 
 
 input_accuracy=input('Input accuracy:','s');
-if input_accuracy(1,1)=='I' && input_accuracy(1,10)=='B'
+if strcmp(input_accuracy,'I LOVE LAB')
 	break
 end
 
