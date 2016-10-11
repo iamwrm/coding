@@ -1,7 +1,6 @@
 # coding
 
-这个就当作是我的日志吧
-
+Treat this as my log.
 
 Don't tell me that I violated the Honor Code
 
