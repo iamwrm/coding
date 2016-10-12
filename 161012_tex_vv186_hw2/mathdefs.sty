@@ -1,0 +1,202 @@
+%% mathdefs.sty
+
+%%%%%%%%%%% AMS Math packages
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+%%%%%%%%%%% XeTeX Font settings (Mac OS X only!)
+
+\usepackage{fontspec,xltxtra,xunicode}
+\defaultfontfeatures{Mapping=tex-text}
+\setromanfont{CMU Serif}
+\setsansfont[Scale=MatchLowercase] {CMU Sans Serif} 
+\setmonofont[Scale=MatchLowercase] {CMU Typewriter Text}
+\newfontfamily{\cn}{Hei}
+\newfontfamily{\kai}{Kai}
+\newfontfamily{\myr}{Myriad Pro}
+\newfontfamily{\yuanti}{Yuanti SC}
+
+
+%%%%%%%%%%% A4 page geometry
+
+\setlength{\hoffset}{-.54cm} 
+\addtolength{\textheight}{1cm}
+\setlength{\textwidth}{17cm} 
+\setlength{\oddsidemargin}{0cm}
+\setlength{\evensidemargin}{+0cm}
+\addtolength{\topmargin}{-1cm}
+\setlength{\parindent}{0pt}
+
+\newcommand{\Title}[1]{\pagestyle{empty}	
+\vspace*{-1.5cm}\qquad\mbox{\XeTeXpdffile "$HOME/Documents/JI/seal/JI_seal.pdf" width 16cm}\par\indent
+\vspace*{-4.25cm}\par\indent\hspace*{-.5cm}\qquad\mbox{\XeTeXpicfile "$HOME/Documents/JI/seal/UM_seal.jpg" width 3cm}
+\vspace*{2cm}\par{\LARGE\textbf{#1}}}
+
+%%%%%%%%%%% Theorem envirnoments
+\theoremstyle{definition}
+\newtheorem{Definition}{Definition}
+\newtheorem{Remark}{Remark}
+\newtheorem{Exercise}{Exercise}
+\newtheorem*{Remark*}{Remark}
+
+\theoremstyle{theorem}
+\newtheorem{Lemma}{Lemma}
+\newtheorem{Corollary}{Corollary}
+\newtheorem{Proposition}{Proposition}
+\newtheorem{Theorem}{Theorem}
+
+\renewcommand{\theExercise}{\arabic{section}.\arabic{Exercise}}
+
+
+\renewcommand{\labelenumi}{\roman{enumi})\ }
+
+\newcommand{\dbar}{d \hspace{-0.7ex}\rule[1.2ex]{0.8ex}{.1ex}\hspace*{-0.3ex}}
+
+\newcommand{\Forall}{\mathop{\forall}\limits}
+\newcommand{\Exists}{\mathop{\exists}\limits}
+
+\newcommand{\vect}[3]{\left(\begin{smallmatrix}#1 \\ #2 \\ #3\end{smallmatrix}\right)}
+
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hess}{Hess}
+\DeclareMathOperator{\PRESS}{PRESS}
+\DeclareMathOperator{\SSE}{SSE}
+\DeclareMathOperator{\MSE}{MSE}
+\DeclareMathOperator{\SSElf}{\SSE_{\un{lf}}}
+\DeclareMathOperator{\SSEpe}{\SSE_{\un{pe}}}
+\DeclareMathOperator{\SStot}{\SSS_{\un{Tot}}}
+\DeclareMathOperator{\SStr}{\SSS_{\un{Tr}}}
+\DeclareMathOperator{\SSe}{\SSS_{\un{E}}}
+\DeclareMathOperator{\SSl}{\SSS_L}
+\DeclareMathOperator{\SSS}{SS}
+\DeclareMathOperator{\MSS}{MS}
+\DeclareMathOperator{\MSe}{\MSS_{\un{E}}}
+\DeclareMathOperator{\MStr}{\MSS_{\un{Tr}}}
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\inhom}{inhom}
+ \DeclareMathOperator{\partic}{part}
+ \DeclareMathOperator{\rank}{rank}
+ \DeclareMathOperator{\iqr}{iqr}
+ \DeclareMathOperator{\tr}{tr}
+ \DeclareMathOperator{\id}{id}
+ \DeclareMathOperator{\dist}{dist}
+ \DeclareMathOperator{\supp}{supp}
+ \DeclareMathOperator{\sgn}{sgn}
+ \newcommand{\Laplace}{\Delta}
+
+\DeclareMathOperator{\cis}{cis} \DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\OO}{O}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Cof}{Cof}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Sol}{Sol}
+\DeclareMathOperator{\Rank}{Rank}
+\DeclareMathOperator{\dom}{dom}
+
+\DeclareMathOperator{\vol}{vol}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\rot}{rot}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\Div}{div}
+\DeclareMathOperator{\E}{E}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Abel}{\text{A --}}
+\DeclareMathOperator{\Cesaro}{\text{C --}}
+
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\res}{res}
+\DeclareMathOperator{\grad}{grad}
+
+
+\DeclareMathOperator{\SSR}{SSR}
+
+
+\DeclareMathOperator{\Artanh}{Artanh}
+\DeclareMathOperator{\Arsinh}{Arsinh}
+\DeclareMathOperator{\Cos}{COS}
+\DeclareMathOperator{\Sin}{SIN}
+
+
+\newcommand{\un}[1]{\mathop{\textup{#1}}}
+\newcommand{\ccdot}{\mathbin{\, \cdot\, }}
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\HH}{\mathbb{H}}
+
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ph}{\varphi}
+\newcommand{\rh}{\varrho}
+\renewcommand{\th}{\vartheta}
+\newcommand{\pd}{{\partial}}
+\newcommand{\Ci}{C^{\infty}}
+
+\newcommand{\s}[1]{\mathcal{#1}}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\wt}[1]{\widetilde{#1}}
+\newcommand{\wh}[1]{\widehat{#1}}
+\newcommand{\ol}[1]{\overline{#1}}
+
+
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\SP}[2]{\langle #1, #2\rangle}
+\newcommand{\Abs}[1]{\langle#1\rangle}
+
+\renewcommand{\Re}{\mathop{\textup{Re}}}
+\renewcommand{\Im}{\mathop{\textup{Im}}}
+
+
+% copyrightbox code
+
+\makeatletter
+\newdimen\tu@tmpa%
+\newdimen\ydiffl%
+\newdimen\xdiffl%
+\newcommand\ydiff[2]{%
+    \coordinate (tmpnamea) at (#1);%
+    \coordinate (tmpnameb) at (#2);%
+    \pgfextracty{\tu@tmpa}{\pgfpointanchor{tmpnamea}{center}}%
+    \pgfextracty{\ydiffl}{\pgfpointanchor{tmpnameb}{center}}%
+    \advance\ydiffl by -\tu@tmpa%
+}
+\newcommand\xdiff[2]{%
+    \coordinate (tmpnamea) at (#1);%
+    \coordinate (tmpnameb) at (#2);%
+    \pgfextractx{\tu@tmpa}{\pgfpointanchor{tmpnamea}{center}}%
+    \pgfextractx{\xdiffl}{\pgfpointanchor{tmpnameb}{center}}%
+    \advance\xdiffl by -\tu@tmpa%
+}
+\makeatother
+\newcommand{\copyrightbox}[3][r]{%
+\begin{tikzpicture}%
+\node[inner sep=0pt,minimum size=2em](ciimage){#2};
+\usefont{OT1}{phv}{n}{n}\fontsize{4}{4}\selectfont
+\ydiff{ciimage.south}{ciimage.north}
+\xdiff{ciimage.west}{ciimage.east}
+\ifthenelse{\equal{#1}{r}}{%
+\node[inner sep=0pt,right=1ex of ciimage.south east,anchor=north west,rotate=90]%
+{\raggedleft\color{black!33}\parbox{\the\ydiffl}{\raggedright{}#3}};%
+}{%
+\ifthenelse{\equal{#1}{l}}{%
+\node[inner sep=0pt,right=1ex of ciimage.south west,anchor=south west,rotate=90]%
+{\raggedleft\color{black!33}\parbox{\the\ydiffl}{\raggedright{}#3}};%
+}{%
+\node[inner sep=0pt,below=1ex of ciimage.south west,anchor=north west]%
+{\raggedleft\color{black!33}\parbox{\the\xdiffl}{\raggedright{}#3}};%
+}
+}
+\end{tikzpicture}
+}
