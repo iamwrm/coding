@@ -209,18 +209,51 @@
 
 \section{Exercise 2.3}
 Proof : 
-From the definition of infimum, we can see that $	y\leq x \wedge (\forall \varepsilon >0 ,(y+\varepsilon)^2 >x)	$ And in this proof, we assume that $y^2\leq x$
+From the definition of infimum, we can see that $	y\leq x \wedge (\forall \varepsilon >0 ,(y+\varepsilon)^2 >x)	$ And in this proof, we assume that $y^2< x$
 
+Let $\varepsilon=\frac{x-y^2}{(x+1)y}$ Then $(\frac{x-y^2}{(x+1)y})^2=y^2+2y\frac{x-y^2}{(x+1)y}+(\frac{x-y^2}{(x+1)y})^2< y^2 +(x+1)y\frac{x-y^2}{(x+1)y}=x$ Thus $(y+\varepsilon)^2<x$ which leads to a contradiction. Thus, the assumption is wrong and there isn't a y , such that $y^2< x$ 
 
-\[	\left. \begin{gathered}	
- (y+\varepsilon)^2 >x \\
-  y^2\leq x
-\end{gathered} 	\right \}
-\implies y^2+2y\varepsilon +\varepsilon^2>x>y^2	\]
+Then the original statement that there is only one element in  $\{y:y^2= x \wedge y>0 \wedge y \in \mathbb{R}\}$ is proved.
 
 
 
+\section{Exercise 2.4}
 
 
+
+\begin{enumerate}
+	\item $maximum=1.5 \\ supremum=1.5 \\infimum=1$
+	\item $maximum=1.25 \\ supremum=1.25 \\infimum=-1	$
+\end{enumerate}
+
+
+\section{Exercise 2.5}
+\begin{enumerate}
+	\item \subitem a)   \ almost upper bound is  $x\in	\{  x:x>1	\}$
+						\ almost lower bound is  $x\in	\{  x:x<1	\}$
+	\subitem  b)   \ almost upper bound is  $	x \in \{ x:x>1	\}$
+			     	\ almost lower bound is  $	x \in \{ x:x<-1	\}$
+	\subitem  c)   \ almost upper bound is  $x	\in \{ x:x>0	\}$
+					\ almost lower bound is  $x	\in \{ x:x<0	\}$ 
+	\subitem  d)   \ almost upper bound is  $x	\in \{  x:x\geq \sqrt{2}\}$
+				\ almost lower bound is  $	x	\in \{  x:x\leq0	\}$ 
+	\item  
+
+
+\end{enumerate}
+
+\section{Exercise 2.6}
+\section{Exercise 2.7}
+\begin{enumerate}
+	\item i) Proof\ : Let $\varepsilon >0$ be fixed , there exists a $N$ such that $N=\lfloor \sqrt\frac{1}{\varepsilon} \rfloor$ 
+	
+	Then $\forall n\geq N , \sqrt{\frac{1}{\varepsilon}}<n \implies \frac{1}{n^2}<\varepsilon \implies \vert\frac{1}{n^2}-0 \vert <\varepsilon \implies \lim_{n\to\infty}  \frac{1}{n^2}=0	$
+	
+ ii) Proof\ : Let $\varepsilon >0$ be fixed , there exists a $N$ such that $N=\lfloor \frac{5}{\varepsilon} \rfloor$ 
+
+Then $\forall n\geq N , \frac{5}{\varepsilon}<n \implies \frac{5}{n}<\varepsilon \implies \vert\frac{2n-5}{n}-2 \vert <\varepsilon \implies \lim_{n\to\infty}  \frac{2n-5}{n}=2	$
+
+\item Proof:
+\end{enumerate}
 
 \end{document}
