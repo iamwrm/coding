@@ -198,10 +198,7 @@
    
    Thus, $ (\frac{m}{n})^2 < (\frac{4 m n}{m^2+2 n^2})^2 < 2 $ , so we have found a bigger rational number $\frac{m'}{n'} = \frac{4 m n}{m^2+2 n^2}$ which satisfies all the requirements. Thus, max $U_1,U_1=\{a\in \mathbb{Q} \colon a^2<2 \}$ does not exist in $\mathbb{Q}$
    
-   \item
    
-   
-   \item
       							
 
 \end{enumerate}
@@ -230,19 +227,54 @@ Then the original statement that there is only one element in  $\{y:y^2= x \wedg
 \section{Exercise 2.5}
 \begin{enumerate}
 	\item \subitem a)   \ almost upper bound is  $x\in	\{  x:x>1	\}$
-						\ almost lower bound is  $x\in	\{  x:x<1	\}$
+						\ almost lower bound is  $x\in	\{  x:x\leq1	\}$
 	\subitem  b)   \ almost upper bound is  $	x \in \{ x:x>1	\}$
-			     	\ almost lower bound is  $	x \in \{ x:x<-1	\}$
+			     	\ almost lower bound is  $	x \in \{ x:x\leq-1	\}$
 	\subitem  c)   \ almost upper bound is  $x	\in \{ x:x>0	\}$
 					\ almost lower bound is  $x	\in \{ x:x<0	\}$ 
 	\subitem  d)   \ almost upper bound is  $x	\in \{  x:x\geq \sqrt{2}\}$
 				\ almost lower bound is  $	x	\in \{  x:x\leq0	\}$ 
-	\item  
+	\item  Assume $x \in set \  X$ Since it's bounded , we can have $\forall x \in X , \exists M>0 $ such that $\lvert x \rvert < M$ \\
+	For it's in real number set , we can have $x_1=supX $ \\
+	From the definition of almost upper bound , it's clear that $x_1$ is an almost upper bound . Thus it's nonempty.\\
+	On the other hand, $\forall x \in X , \lvert x \rvert < M \implies -M<x<M$ If the set $Y$ isn't bounded below, then we may have one element that is smaller than $-M$, then all the infinite elements in $X$ is included. It is against the definition of almost upper bound.\\
+	Thus, set $Y$ is bounded below.
+	
+	%\item \subitem a) $1.5$ \subitem b) $1.25$ \subitem c) $0.5$ \subitem d) $\sqrt{2} $
+	\item \subitem a) $1$ \subitem b) $1$ \subitem c) $0$ \subitem d) $\sqrt{2} $
+	
+	
+	\item $Y$ is the set of all almost lower bounds of $X$ If the supremum sup$Y$ exists ,then it's the $limit inferior$ \\
+
+	\subitem a) $1$ \subitem b) $-1$ \subitem c) $0$ \subitem d) $0$
+	
+	\item
+	\subitem (a) Proof: Limit inferior of $A$ $\implies$ There is infinite numbers bigger than this figure. \\ Limit superior of $A$ $\implies$ There is infinite numbers smaller than this figure.\\
+	Thus, $\varliminf A \leq \varlimsup A$
+	
+	\subitem (b) Proof:\\ If $x$ is the suprenum of $A$ , then $\forall a \in A , x \geq a$ but there can be finite number of $a$ such that $a > \varlimsup A$\\
+	Thus, $\varlimsup A \leq sup A$\\
+	If $x$ is the infimum of $A$ , then $\forall a \in A , x \leq a$ but there can be finite number of $a$ such that $a < \varlimsup A$\\
+	Thus, $\varlimsup A \geq inf A$
+	
 
 
 \end{enumerate}
 
 \section{Exercise 2.6}
+\begin{enumerate}
+	\item Proof\ : $z_1=a_1+b_1 i$ , $z_2=a_2+b_2 i$\\
+	 $z_1 z_2 =a_1 a_2-b_1 b_2 +(a_1 b_2 +a_2 b_1 )i \implies \lvert z_1 z_2\rvert=\sqrt{(a_1 a_2 - b_1 b_2 )^2+(a_1 b_2 +a_2 b_1)^2} =\sqrt{a_1^2 a_2^2 +b_1^2 b_2^2 +a_1^2 b_2^2 +a_2^2 b_1^2} $\\
+	 $\lvert z_1 \rvert =\sqrt{a_1^2+b_1^2} ,  \lvert z_2 \rvert =\sqrt{a_2^2+b_2^2} \implies \lvert z_1 \rvert \lvert z_2 \rvert =\sqrt{a_1^2 a_2^2 +b_1^2 b_2^2 +a_1^2 b_2^2 +a_2^2 b_1^2}=\lvert z_1 z_2\rvert $
+	 
+	 \item Assume $z=a+bi $ Then $ \lvert z+2 \rvert \leq \lvert z-1 \rvert \implies \lvert a+2+bi\rvert \leq \lvert a-1+bi \rvert \implies (a+2)^2+b^2 \leq a^2 -2a+1+b^2 \implies 6a \leq -3 \implies a \leq - \frac{1}{2}	$ Thus, all complex number $z \in \{ (x,y):x,y \in \mathbb{R} \wedge x \leq - \frac{1}{2} \}$ satisfies the original inequality.
+	 
+	 \item $z_1=a_1+b_1 i$ , $z_2=a_2+b_2 i$\\
+	 $ \lvert z_1 + z_2 \rvert ^2 +\lvert z_1 - z_2 \rvert ^2 = (a_1+a_2)^2+(b_1+b_2)^2+(a_1-a_2)^2+(b_1-b_2)^2 =2(a_1^2+a_2^2+b_1^2+b_2^2)$\\
+	 $2(\lvert z_1 \rvert ^2 +\lvert z_2 \rvert ^2 )=2(a_1^2+a_2^2+b_1^2+b_2^2)$\\
+	 Thus, $ \lvert z_1 + z_2 \rvert ^2 +\lvert z_1 - z_2 \rvert ^2 = 2(\lvert z_1 \rvert ^2 +\lvert z_2 \rvert ^2 )$
+\end{enumerate}
+
 \section{Exercise 2.7}
 \begin{enumerate}
 	\item i) Proof\ : Let $\varepsilon >0$ be fixed , there exists a $N$ such that $N=\lfloor \sqrt\frac{1}{\varepsilon} \rfloor$ 
@@ -253,7 +285,7 @@ Then the original statement that there is only one element in  $\{y:y^2= x \wedg
 
 Then $\forall n\geq N , \frac{5}{\varepsilon}<n \implies \frac{5}{n}<\varepsilon \implies \vert\frac{2n-5}{n}-2 \vert <\varepsilon \implies \lim_{n\to\infty}  \frac{2n-5}{n}=2	$
 
-\item Proof:
+
 \end{enumerate}
 
 \end{document}
