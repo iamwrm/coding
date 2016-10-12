@@ -16,7 +16,7 @@ for i1=1:n+1
      a(i1,:)=[my_blank,a(i1,1:end-my_back)];
 end
 a(a(:)==0)=-1;
-a=num2str(a,'%-d');
+a=num2str(a,'%-d    ');
 
 for i1=1:n+1
 a(i1,:)=strrep(a(i1,:),'-1','  ');
