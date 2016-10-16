@@ -8,7 +8,8 @@ n=str2num(n);
 if n<0
 	break;
 end
-r=randi([0 1],n,n);
+% r=randi([0 1],n,n);
+r=ones(n);
 
 my_sum=0;
 for i1=1:n
