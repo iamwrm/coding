@@ -1,0 +1,11 @@
+
+
+N=input('','s');
+N=str2num(N);
+P=[];
+for i1=1:N
+	if isprime(i1)==1
+		P=[P,i1];
+	end
+end
+
