@@ -9,7 +9,7 @@ avector=1/3*a0a3;
 a1=a0+avector;
 a2=a0+2*avector;
 theta=pi/3;
-myrot=[cos(theta) -sin(theta);sin(theta) cos(theta)];
+myrot=[cos(theta) +sin(theta);-sin(theta) cos(theta)];
 aaa=myrot*avector;
 a4=a1+aaa;
 hold on ;
