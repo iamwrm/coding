@@ -3,6 +3,11 @@
 *.py[co]
 *.out
 
+*.bmp
+*.exe
+*.pdf
+
+
 # Bah, LaTeX junk
 *.aux
 *.log
