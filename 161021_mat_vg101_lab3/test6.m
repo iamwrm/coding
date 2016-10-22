@@ -1,6 +1,7 @@
 clear
 clc
-
+% the six version
+% not perfectly solve the problem
 [a0,colormapa0]=imread('l3.bmp');
 a177=imread('l3176.bmp');
 anumber=imread('9.bmp');

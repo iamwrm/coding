@@ -4,7 +4,7 @@ clc
 % not perfectly solve the problem
 
 [op,colormap_op]=imread('l3.bmp');%		op stands for original picutre
-cp=imread('l3120.bmp');	%	cp stands for classified picture
+cp=imread('l312.bmp');	%	cp stands for classified picture
 anumber=imread('9.bmp');
 
 ops=[];
@@ -32,7 +32,6 @@ end
 cpscr=reshape(cpsc,[192 76]);
 
 imshow(cpscr);
-
 
 
 

@@ -1,6 +1,6 @@
 clear
 clc
-% the six version
+% the seventh version
 % not perfectly solve the problem
 
 [op,colormap_op]=imread('l3.bmp');%		op stands for original picutre
