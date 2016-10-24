@@ -1,5 +1,5 @@
 function hanoi(n)
-%a上原有盘数为n的汉诺塔。
+
 han(n,'a','b','c')
 
 function han(n,a,b,c)
