@@ -1,0 +1,11 @@
+clear
+clc
+%sent=input('Enter a sentence: ');
+sent='one two three.';
+s={};
+
+i2=1;
+space = strfind(sent,' ');
+ for i1=1:length(space)
+%     s{i2,1}=
+    
