@@ -25,5 +25,8 @@ for i1=0:10:90
 num(i2)=size(find(score(:)>=i1 & score(:)<i1+10),1);
 i2=i2+1;
 end
-bar([5:10:95],num);
+
+bar(num,[5:10:95]);
+
+
             
