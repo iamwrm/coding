@@ -8,7 +8,7 @@ anumber=imread('9.bmp');
 
 cpsc=cp(cp~=op);
 
-cpsc=cpsc';
+cpsc=cpsc;
 cpsc(192*76)=0;
 cpscr=reshape(cpsc,[192 76]);
 
