@@ -1,0 +1,9 @@
+fprintf('hello!\n');
+a=1;
+b=2;
+c=a+b;
+fprintf('c=%d\n',c);
+c=c-a;
+fprintf('c=%d\n',c);
+c=c*b;
+fprintf('c=%d\n',c);
