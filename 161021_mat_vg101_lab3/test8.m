@@ -1,10 +1,10 @@
-clear
-clc
+
 % the six version
 % not perfectly solve the problem
 
+
 [op,colormap_op]=imread('l3.bmp');%		op stands for original picutre
-cp=imread('l312.bmp');	%	cp stands for classified picture
+cp=imread('temp.bmp');	%	cp stands for classified picture
 anumber=imread('9.bmp');
 
 ops=[];
@@ -28,8 +28,9 @@ for i1=1:1080
 		cpsc=[cpsc,cps(:,i1)];
 	end
 end
-
+cpsc=cpsc';
 cpscr=reshape(cpsc,[192 76]);
+
 
 imshow(cpscr);
 
