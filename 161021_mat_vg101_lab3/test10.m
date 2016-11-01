@@ -38,18 +38,22 @@ i1r = [8 16 22 33 45 59 68 76 82 93 105 119 128 136 142 153 165 179 188 ...
 
 % stuid=input('input your stuid: ', 's');
 % stuid=str2num(stuid);
-
+% 
 compose=[pic6 pic2 pic8];
-compose=rot90(compose,3);
+% 
+% compose=reshape(compose,[76 192]);
+compose=compose';
+% compose=reshape(compose,[192 76]);
 % compose(compose(:)>=200)=200;
 
+% compose(compose(:)>=250)=0;
 for i1=1:192
     for i2=1:76
         pic(i1r(i1),i1c(i2))=compose(i1,i2);
     end
 end
-        
+
 
 secret=imread('temp.bmp');
-
-imshow(pic-secret,clm);
+length(find(pic==secret))
+imshow(pic,clm);
