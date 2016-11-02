@@ -78,7 +78,7 @@ int main(void)
     scanf("%s",in);
     double result;
     result = pre2dou(in);
-    //printf("%d\n%d\n%d\n%d\n%d\n",a,b,c,d,e );
+    
     printf("%.10lf", result);
     return 0;
 }

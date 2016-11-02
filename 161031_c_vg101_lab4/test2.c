@@ -24,7 +24,6 @@ char* dou2pre(double a){
 		mul10++;
 	}
 	int aint=(int)(a);
-//	printf("aint= %d\n", aint);
 	result=int2bin(aint);
 	char* mul10bin;
 	mul10bin=(char *)malloc(sizeof(char)*3);
