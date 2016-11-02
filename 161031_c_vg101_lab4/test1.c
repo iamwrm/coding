@@ -56,7 +56,7 @@ double pre2dec(int a, int b, int c, int d, int e)
     return xf;
 }
 //below combine pre1dec and pre2dec together
-double pre3dec(char *in)
+double pre2dou(char *in)
 {
     int a, b, c, d, e = 0;
     a = pre1dec(in, 0, 4);
@@ -77,7 +77,7 @@ int main(void)
     char in[17] = "1100001000011110";
     scanf("%s",in);
     double result;
-    result = pre3dec(in);
+    result = pre2dou(in);
     //printf("%d\n%d\n%d\n%d\n%d\n",a,b,c,d,e );
     printf("%.10lf", result);
     return 0;
