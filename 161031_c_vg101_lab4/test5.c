@@ -213,7 +213,7 @@ int main(void){
     input2_dou=pre2dou(input2);
     
 
-    double output_dou=input1_dou+input2_dou;
+    double output_dou=input1_dou*input2_dou;
   
     char* output;
     output=(char *)malloc(sizeof(char)*17);
