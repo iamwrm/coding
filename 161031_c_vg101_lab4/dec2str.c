@@ -20,7 +20,6 @@ char* convert(int a){
 	int j=0;
 	for (j=0;j<i;j++){
 		bout[j]=aout[i-j-1];
-		//printf("%c\n",bout[j] );
 
 	}
 
