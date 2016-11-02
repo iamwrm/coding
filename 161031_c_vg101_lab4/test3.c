@@ -208,6 +208,9 @@ int main(void){
     char input1[17],input2[17];
     scanf("%s",input1);
     scanf("%s",input2);
+   // input1="1000000010000001";
+  //  input2="0000011100010000";
+
     double input1_dou,input2_dou;
     input1_dou=pre2dou(input1);
     input2_dou=pre2dou(input2);

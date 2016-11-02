@@ -74,8 +74,8 @@ int main(void)
     /* code */
 
     //in means input array
-    char in[17] = "1100001000011110";
-    scanf("%s",in);
+    char in[17] = "1000000010000001";
+   // scanf("%s",in);
     double result;
     result = pre2dou(in);
     

@@ -102,10 +102,12 @@ char* dou2pre(double a){
     }
     if (ifpositive==0){
         result[30]='0';
+        result[31]='0';
     } else{
         result[30]='1';
+        result[31]='1';
     }
-    result[31]='\0';
+    result[32]='\0';
     return result;
 }
 
@@ -216,8 +218,10 @@ int main(void)
     /* code */
 
     //in means input array
-    char in[17] = "1000000010000001";
-    scanf("%s",in);
+   // char in[17] = "1000000010000001";
+    char in[17]="0000011100010000";
+
+  //  scanf("%s",in);
     double result;
     result = pre2dou(in);
   //  printf("%.32lf\n",result );
