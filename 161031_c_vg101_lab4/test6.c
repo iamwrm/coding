@@ -1,6 +1,13 @@
+// I define my double premia by
+// it use 3 groups of 8 bits to store 256 255 253 's  Yushu
+// it use 6 bits to store the decimal point
+// 1 bit to store positive or not 
+// Thus, it needs 31 bits
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+
 char* int2bin(int a);
 char* dec2bin(int a);
 char* dou2pre(double a);
