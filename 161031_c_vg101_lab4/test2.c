@@ -8,6 +8,7 @@ char* dec2bin3(int a);
 
 
 char* dou2pre(double a){
+
 	int ifpositive=1;
 	if (a<0) {
 		a=-a;
@@ -22,13 +23,9 @@ char* dou2pre(double a){
 		a*=10;
 		mul10++;
 	}
-	printf("mul10= %d\n", mul10);
-	printf("a= %lf\n", a);
 	int aint=(int)(a);
 //	printf("aint= %d\n", aint);
 	result=int2bin(aint);
-	printf("result=%s\n",result);
-
 	char* mul10bin;
 	mul10bin=(char *)malloc(sizeof(char)*3);
 	mul10bin=dec2bin3(mul10);
@@ -36,17 +33,12 @@ char* dou2pre(double a){
 	for (int i=0;i<3;i++){
 		result[12+i]=mul10bin[i];
 	}
-	printf("resul1=%s\n",result);
-
-	
-
 	if (ifpositive==0){
 		result[15]='0';
 	} else{
 		result[15]='1';
 	}
-	
-
+	result[16]='\0';
 	return result;
 }
 
@@ -88,7 +80,6 @@ char* int2bin(int a){
 	a1= a % 16;
 	a2= a % 15;
 	a3= a % 13;
-//	printf("a1 %d a2 %d a3 %d\n",a1,a2,a3 );
 	char* a1c;
 	char* a2c;
 	char* a3c;
@@ -111,7 +102,6 @@ char* int2bin(int a){
 	for (i=0;i<4;i++){
 		atc[i+8]=a3c[i];	
 	}
-//	printf("atc=%s\n",atc );
 	return atc;
 }
 
@@ -152,10 +142,11 @@ int main(void){
 	char* aa;
 	aa=int2bin(a);
 	printf("%s\n",aa );*/
-	double a=-72.1;
+	double a=72.1;
+	scanf("%lf",&a);
 	char* ai;
 	ai=	dou2pre(a);
-	printf("       %s\n", ai);
+	printf("%s\n", ai);
 	
 
 	return 0;
