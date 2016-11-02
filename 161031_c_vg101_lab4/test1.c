@@ -37,20 +37,14 @@ double pre2dec(int a, int b, int c, int d, int e)
 
     int x = 0;
     int i = 0;
-    for (i = 0; i < 3; i++)
-    {
-	int y1 = 1;
-	while (!(((M[i] * y1) % m[i]) == 1))
-	{
-	    y1++;
-	}
-	x += M[i] * y1 * para[i];
+    for (i = 0; i < 3; i++){
+		int y1 = 1;
+		while (!(((M[i] * y1) % m[i]) == 1)) {y1++;}
+		x += M[i] * y1 * para[i];
     }
 
-    while (x > m[0] * m[1] * m[2])
-    {
-	x -= m[0] * m[1] * m[2];
-    }
+    while (x > m[0] * m[1] * m[2]) 
+    	{x -= m[0] * m[1] * m[2];}
     //using the 13-15 bits
     double xf;
     xf = (double)x;
@@ -75,12 +69,13 @@ double pre3dec(char *in)
     return xf;
 }
 
-int main(int argc, char const *argv[])
+int main(void)
 {
     /* code */
 
     //in means input array
-    char in[17] = "1100001000011111";
+    char in[17] = "1100001000011110";
+    scanf("%s",in);
     double result;
     result = pre3dec(in);
     //printf("%d\n%d\n%d\n%d\n%d\n",a,b,c,d,e );
