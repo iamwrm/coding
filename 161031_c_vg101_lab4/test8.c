@@ -46,11 +46,9 @@ double pre2dec(int a, int b, int c, int d, int e)
         int y1 = 1;
         while (!(((M[i] * y1) % m[i]) == 1)) {y1++;}
         x += M[i] * y1 * para[i];
-//        printf("miy1para= %ld\n", M[i] * y1 * para[i]);
- //       printf("x= %ld\n", x);
     }
 
-    while (x > m[0] * m[1] * m[2]) 
+    while (x > m[0] * m[1] * m[2])
         {x -= m[0] * m[1] * m[2];}
     //using the 13-15 bits
     double xf;
@@ -99,7 +97,7 @@ char* dou2pre(double a){
 	char* mul10bin;
 	mul10bin=(char *)malloc(sizeof(char)*3);
 	mul10bin=dec2bin3(mul10);
-	
+
 	for (int i=0;i<3;i++){
 		result[12+i]=mul10bin[i];
 	}
@@ -144,7 +142,7 @@ char* dec2bin3(int a){
 }
 
 char* int2bin(int a){
-	
+
 	int result=0;
 	int a1,a2,a3=0;
 	a1= a % 16;
@@ -167,10 +165,10 @@ char* int2bin(int a){
 
 	}
 	for (i=0;i<4;i++){
-		atc[i+4]=a2c[i];	
+		atc[i+4]=a2c[i];
 	}
 	for (i=0;i<4;i++){
-		atc[i+8]=a3c[i];	
+		atc[i+8]=a3c[i];
 	}
 	return atc;
 }
@@ -208,6 +206,8 @@ char* dec2bin(int a){
 }
 
 
+
+// try
 int main(void)
 {
     /* code */
@@ -217,13 +217,13 @@ int main(void)
    char in[33] = "01100000011000010110001100000000";
     //char in[32] = "1100001000011111";
    // scanf("%s",in);
-    
+
     double result;
   //  result=840;
     result = pre2dou(in);
   //  printf("%.32lf\n",result );
 
-    
+
     char* out;
     out=(char *)malloc(sizeof(char)*33);
 

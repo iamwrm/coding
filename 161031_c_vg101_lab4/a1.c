@@ -8,10 +8,12 @@ int convert(char *a, int length);
 
 int main()
 {
+    
     char myinput[16];
     char a[4], b[4], c[4], d[3], e[1];
     printf("Please input a binary number:\n");
     scanf("%s", myinput);
+
     for (int i1 = 0; i1 < 4; i1++)
     {
 	a[i1] = myinput[i1];
