@@ -5,20 +5,20 @@
 int main(int argc, char const *argv[]) {
 
 
-  int a=0,b=0;
-  int* ap,bp;
-  ap=&a;
-  bp=&b;
-  printf("a= %d\n", a);
-  printf("b= %d\n", b);
+  int a[2];
+  a[0]=00;
+  a[1]=10;
+//  int* ap,bp;
 
-  printf("ap=%ld\n",ap );
-  printf("bp=%ld\n",bp );
-  ap=ap-1;
-  *(&a-1)=11;
+printf("a[0]= %d\n",  a[0]);
+printf("a[1]= %d\n",  a[1]);
 
-  printf("a= %d\n", a);
-  printf("b= %d\n", b);
+  printf("ap=%ld\n",a );
+  printf("bp=%ld\n",a +1);
+  *(a+1)+=1;
+
+  printf("a[0]= %d\n",  a[0]);
+  printf("a[1]= %d\n",  a[1]);
 
 
   return 0;
