@@ -28,7 +28,7 @@ char* dou2pre(double a){
 	char* mul10bin;
 	mul10bin=(char *)malloc(sizeof(char)*3);
 	mul10bin=dec2bin3(mul10);
-	
+
 	for (int i=0;i<3;i++){
 		result[12+i]=mul10bin[i];
 	}
@@ -73,7 +73,7 @@ char* dec2bin3(int a){
 }
 
 char* int2bin(int a){
-	
+
 	int result=0;
 	int a1,a2,a3=0;
 	a1= a % 16;
@@ -96,10 +96,10 @@ char* int2bin(int a){
 
 	}
 	for (i=0;i<4;i++){
-		atc[i+4]=a2c[i];	
+		atc[i+4]=a2c[i];
 	}
 	for (i=0;i<4;i++){
-		atc[i+8]=a3c[i];	
+		atc[i+8]=a3c[i];
 	}
 	return atc;
 }
@@ -146,7 +146,7 @@ int main(void){
 	char* ai;
 	ai=	dou2pre(a);
 	printf("%s\n", ai);
-	
+
 
 	return 0;
 }

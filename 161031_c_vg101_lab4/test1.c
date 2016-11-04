@@ -8,8 +8,8 @@
 //according to its 1-4 5-8 9-12 13-15 16
 int pre1dec(char *a, int beg, int len)
 {
-    int result = 0;
     int i;
+    int result = 0;
     //hehe
 
     a += beg;
@@ -75,10 +75,10 @@ double pre2dou(char *in)
 int main(void)
 {
     /* code */
-
+    int* in;
     //in means input array
-    char in[17] = "1000000010000001";
-   // scanf("%s",in);
+  //  char in[17] = "1000000010000001";
+    scanf("%s",in);
     double result;
     result = pre2dou(in);
 

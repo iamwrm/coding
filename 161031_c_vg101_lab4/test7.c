@@ -48,7 +48,7 @@ double pre2dec(int a, int b, int c, int d, int e)
         x += M[i] * y1 * para[i];
     }
 
-    while (x > m[0] * m[1] * m[2]) 
+    while (x > m[0] * m[1] * m[2])
         {x -= m[0] * m[1] * m[2];}
     //using the 13-15 bits
     double xf;
@@ -96,7 +96,7 @@ char* dou2pre(double a){
     char* mul10bin;
     mul10bin=(char *)malloc(sizeof(char)*6);
     mul10bin=dec2bin3(mul10);
-    
+
     for (int i=0;i<6;i++){
         result[24+i]=mul10bin[i];
     }
@@ -146,7 +146,7 @@ char* dec2bin3(int a){
 }
 
 char* int2bin(int a){
-    
+
     int result=0;
     int a1,a2,a3=0;
     a1= a % 256;
@@ -169,10 +169,10 @@ char* int2bin(int a){
 
     }
     for (i=0;i<8;i++){
-        atc[i+8]=a2c[i];    
+        atc[i+8]=a2c[i];
     }
     for (i=0;i<8;i++){
-        atc[i+16]=a3c[i];    
+        atc[i+16]=a3c[i];
     }
     return atc;
 }
@@ -226,7 +226,7 @@ int main(void)
     result = pre2dou(in);
   //  printf("%.32lf\n",result );
 
-    
+
     char* out;
     out=(char *)malloc(sizeof(char)*33);
 

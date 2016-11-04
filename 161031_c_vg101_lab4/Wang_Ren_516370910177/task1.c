@@ -43,7 +43,7 @@ double pre2dec(int a, int b, int c, int d, int e)
 		x += M[i] * y1 * para[i];
     }
 
-    while (x > m[0] * m[1] * m[2]) 
+    while (x > m[0] * m[1] * m[2])
     	{x -= m[0] * m[1] * m[2];}
     //using the 13-15 bits
     double xf;
@@ -79,7 +79,7 @@ int main(void)
     scanf("%s",in);
     double result;
     result = pre2dou(in);
-    
+
     printf("%.10lf", result);
     return 0;
 }
