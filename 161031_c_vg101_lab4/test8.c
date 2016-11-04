@@ -221,7 +221,7 @@ int main(void)
     double result;
   //  result=840;
     result = pre2dou(in);
-  //  printf("%.32lf\n",result );
+    //  printf("%.32lf\n",result );
 
 
     char* out;

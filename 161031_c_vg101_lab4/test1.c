@@ -10,6 +10,7 @@ int pre1dec(char *a, int beg, int len)
 {
     int result = 0;
     int i;
+    //hehe
 
     a += beg;
     for (i = 0; i < len; i++)
