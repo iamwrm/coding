@@ -15,7 +15,7 @@ int main(int argc, char const *argv[]) {
   printf("ap=%ld\n",ap );
   printf("bp=%ld\n",bp );
   ap=ap-1;
-  *ap=11;
+  *(&a-1)=11;
 
   printf("a= %d\n", a);
   printf("b= %d\n", b);
