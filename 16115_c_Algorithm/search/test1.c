@@ -14,7 +14,6 @@ int search(int* array,int a) {
     if (array[i]==a){
       index=i;
     }
-
   }
 
   return index;
