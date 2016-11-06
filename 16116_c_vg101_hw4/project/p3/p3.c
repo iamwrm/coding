@@ -20,8 +20,21 @@ int main(void) {
     double c;
     scanf("%lf",&c);
 
+    if (b*b >= 4*a*c) {
+        double x1,x2;
+        x1=(-b+sqrt(b*b-4*a*c))/(2*a);
+        x2=(-b-sqrt(b*b-4*a*c))/(2*a);
+        printf("The first solution is %f\n", x1);
+        printf("The second solution is %f\n", x2);
+    }   else {
+        double x,x1;
+        x=(-b)/(2*a);
+        x1=sqrt(-b*b+4*a*c)/(2*a);
+
+        printf("The first solution is %f + %fi\n", x,x1);
+        printf("The second solution is %f - %fi\n", x,x1);
+    }
 
 
-    printf("%f %f %f \n",a,b,c );
     return 0;
 }
