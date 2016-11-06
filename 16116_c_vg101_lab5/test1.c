@@ -38,12 +38,23 @@ void sort_b(){
 }
 
 int main(void) {
-    printf("Input" );
+    while (1){
+        printf("Input a complete mahjong hand(0 to end the program)" );
 
-    scanf("%s",array );
-    sort_b();
+        scanf("%s",array );
+        if (strlen(array)<14) {
+            if (array[0]=='0') {break;}
+                else {
+                    printf("It is not a complete mahjong hand.\n" );
+                    continue;
+                }
 
-    printf("OUOUT:%s",array );
+            }
 
+        sort_b();
+
+
+        printf("OUOUT:%s",array );
+    }
     return 0;
 }
