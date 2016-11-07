@@ -13,6 +13,7 @@ mingw32  gcc version 4.9.2
 
 char array[MAX];
 char array1[MAX];
+int i_couple[13];
 
 void sort_b(){
     int i=0;
@@ -39,7 +40,15 @@ void sort_b(){
 
 }
 
-
+void find_couple(){
+    int ii=0;
+    for(int i=0;i<13;i++){
+        if (array[i]==array[i+1]){
+            i_couple[ii]=i;
+            ii++;
+        }
+    }
+}
 
 void remove_couple(int index){
     int i;
@@ -58,8 +67,6 @@ int main(void) {
         printf("Input a complete mahjong hand(0 to end the program)" );
 
         scanf("%s",array );
-        strcpy(array1,array);
-
 
         if (strlen(array)<14) {
             if (array[0]=='0') {break;}
@@ -70,13 +77,24 @@ int main(void) {
             }
 
         sort_b();
+        strcpy(array1,array);
+
         printf("                                             OUOUT:%s\n",array );
 
+        for(int i=0;i<13;i++) i_couple[i]=-1;
+        find_couple();
 
+        printf("i_couple: ");
+        for(int i=0;i<13;i++) printf("%d ",i_couple[i] );
+        printf("\n" );
 
-
-
-
+        int j=0;
+        while (i_couple[j]!=-1){
+            remove_couple(i_couple[j]);
+            printf("                                             OUOUT:%s\n",array );
+            j++;
+            strcpy(array,array1);
+        }
     }//这是while (1) 的大括号
     return 0;
 }
