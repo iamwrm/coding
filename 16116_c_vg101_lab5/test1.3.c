@@ -39,7 +39,7 @@ void sort_b(){
 
 }
 
-void find_couple();
+
 
 void remove_couple(int index){
     int i;
@@ -59,27 +59,24 @@ int main(void) {
 
         scanf("%s",array );
         strcpy(array1,array);
+
+
         if (strlen(array)<14) {
             if (array[0]=='0') {break;}
                 else {
                     printf("It is not a complete mahjong hand.\n" );
                     continue;
                 }
-
             }
 
         sort_b();
         printf("                                             OUOUT:%s\n",array );
 
-        for(int i=0;i<13;i++){
-            sort_b();
-            remove_couple(i);
 
-            printf("                                             OUOUT:%s\n",array );
-            strcpy(array,array1);
-    }
 
-    }
 
+
+
+    }//这是while (1) 的大括号
     return 0;
 }

@@ -11,10 +11,8 @@ mingw32  gcc version 4.9.2
 #define  MAX 15
 #endif
 
-char array[MAX];
-char array1[MAX];
 
-void sort_b(){
+char* sort_b(char* array){
     int i=0;
     for(;i<MAX;i++){
         if (array[i]=='\0') break;
@@ -36,21 +34,8 @@ void sort_b(){
         }
         i_unsorted--;
     }
-
+    return result;
 }
-
-void find_couple();
-
-void remove_couple(int index){
-    int i;
-
-    for (i=index;array[i+2]!='\0';i++){
-        array[i]=array[i+2];
-    }
-    array[i]='\0';
-}
-
-
 
 
 int main(void) {
