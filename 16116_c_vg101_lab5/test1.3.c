@@ -14,6 +14,15 @@ mingw32  gcc version 4.9.2
 char array[MAX];
 char array1[MAX];
 int i_couple[13];
+int i_triple[13];
+
+void my_save(void){
+    strcpy(array1,array);
+}
+
+void my_load(void){
+    strcpy(array,array1);
+}
 
 void sort_b(){
     int i=0;
@@ -50,14 +59,25 @@ void find_couple(){
     }
 }
 
-void remove_couple(int index){
+void remove_idtc(int index,int d){
     int i;
 
-    for (i=index;array[i+2]!='\0';i++){
-        array[i]=array[i+2];
+    for (i=index;array[i+d]!='\0';i++){
+        array[i]=array[i+d];
     }
     array[i]='\0';
 }
+
+void find_triple(){
+    int ii=0;
+    for(int i=0;i<12;i++){
+        if ((array[i]==array[i+1])&&(array[i+1]==array[i+2])){
+            i_triple[ii]=i;
+            ii++;
+        }
+    }
+}
+
 
 
 
@@ -66,7 +86,7 @@ int main(void) {
     while (1){
         printf("Input a complete mahjong hand(0 to end the program)" );
 
-        scanf("%s",array );
+        scanf("%s",array );//11123455678999
 
         if (strlen(array)<14) {
             if (array[0]=='0') {break;}
@@ -77,23 +97,29 @@ int main(void) {
             }
 
         sort_b();
-        strcpy(array1,array);
+        my_save();
 
         printf("                                             OUOUT:%s\n",array );
 
         for(int i=0;i<13;i++) i_couple[i]=-1;
         find_couple();
 
-        printf("i_couple: ");
-        for(int i=0;i<13;i++) printf("%d ",i_couple[i] );
-        printf("\n" );
-
         int j=0;
         while (i_couple[j]!=-1){
-            remove_couple(i_couple[j]);
-            printf("                                             OUOUT:%s\n",array );
+            remove_idtc(i_couple[j],2);
+            printf("                      couple removed         OUOUT:%s\n",array );//for debug
+
+            /*
+            for(int i=0;i<12;i++) i_triple[i]=-1;
+            find_triple();
+            int ij=0;
+            while (i_triple[ij]!=-1){
+                remove_idtc(i_triple[ij],3);
+            }
+            */
+
             j++;
-            strcpy(array,array1);
+            my_load();
         }
     }//这是while (1) 的大括号
     return 0;
