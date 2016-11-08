@@ -12,7 +12,7 @@ int dfs(int lev,int book[])
 		    return 1;
 		return 0;
 	}
-	
+
 	int i;
 	for(i=1;i<=7;++i)
 	{
@@ -23,7 +23,7 @@ int dfs(int lev,int book[])
 			book[i]++;book[i+1]++;book[i+2]++;
 		}
 	}
-	
+
 	for(i=1;i<=9;++i)
 	{
 		if(book[i]>=3)
@@ -33,7 +33,7 @@ int dfs(int lev,int book[])
 			book[i]+=3;
 		}
 	}
-	return 0; 
+	return 0;
 }
 
 int main()
@@ -41,6 +41,7 @@ int main()
 	char s[100];
 	int book[10],i,j;
 	scanf("%s",s);
+
 	while(strlen(s)!=14)
 	{
 		printf("Invalid Input, enter again: ");
@@ -48,15 +49,16 @@ int main()
 	}
 	for(i=1;i<=9;++i)book[i]=0;
 	for(i=0;i<14;++i)book[s[i]-'0']++;
+	printf("tong:\n" );
 	for(i=1;i<=9;++i)
 	  for(j=1;j<=book[i];++j)
 	    printf("%d",i);
 	printf("\n");
-	
+
 	if(dfs(1,book))printf("You win\n");
 	else printf("Not win\n");
-	
+
 	return 0;
-	
-	
+
+
 }
