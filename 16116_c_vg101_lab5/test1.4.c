@@ -38,8 +38,10 @@ int main(void){
     while (1){
         printf("Input a complete mahjong hand(0 to end the program)" );
         char array[20];
-        scanf("%s",array );//11123455678999
-                           //11223344556789
+        scanf("%s",array );
+                           //11122233344455
+                           //11112222333399
+                           //12333344556677
 
         if (strlen(array)<14) {
             if (array[0]=='0') {break;}

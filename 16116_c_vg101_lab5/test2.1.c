@@ -31,6 +31,7 @@ int main(int argc, char const *argv[]) {
     int type;
     double op2;
     char s[MAXOP];//1,2,-,4,5,+,*
+    //    7,4,2,1,-,*,5,+,-,3,*
 
     while ((type=getop(s))!=EOF){
 
