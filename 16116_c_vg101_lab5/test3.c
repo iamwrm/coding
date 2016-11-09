@@ -14,6 +14,7 @@ mingw32  gcc version 4.9.2
 
 int sp=0;
 double val[MAXVAL];
+
 char buf[100];
 int bufp=0;
 
@@ -38,10 +39,10 @@ int main(int argc, char const *argv[]) {
 
         switch (type) {
             case NUMBER:
-                push(atof(s));
+                printf("%s ",s );
                 break;
             case '+':
-                push(pop()+pop());
+                push('+');
                 break;
             case '*':
                 push(pop()*pop());
