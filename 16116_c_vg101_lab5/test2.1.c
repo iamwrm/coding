@@ -33,7 +33,7 @@ int main(int argc, char const *argv[]) {
     char s[MAXOP];//1,2,-,4,5,+,*
 
     while ((type=getop(s))!=EOF){
-    
+
 
 
         switch (type) {
@@ -55,7 +55,7 @@ int main(int argc, char const *argv[]) {
                 push(pop()/op2);
                 break;
             case '\n':
-                printf("\t%.8g\n", pop());
+                printf("%8g\n", pop());
                 break;
             default:
                 printf("error: unknown command %s\n", s);
