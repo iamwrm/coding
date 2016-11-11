@@ -14,15 +14,10 @@ mingw32  gcc version 4.9.2
 
 int sp=0;
 double val[MAXVAL];
-char buf[100];
-int bufp=0;
 
 
-int getop(char[]);
 void push(double);
 double pop(void);
-int getch(void);
-void ungetch(int);
 
 
 
@@ -30,14 +25,19 @@ void ungetch(int);
 int main(int argc, char const *argv[]) {
     int type;
     double op2;
-    char s[MAXOP];//1,2,-,4,5,+,*
+    char s[MAXOP];//"7,4,2,1,-,*,5,+,-,3,*";
     //    7,4,2,1,-,*,5,+,-,3,*
+//char s[MAXOP]="7,4,2,1,-,*,5,+,-,3,*";
+scanf("%s",s);
 
-    while ((type=getop(s))!=EOF){
+char* spp;
+spp=s;
+
+    while (*(spp)!='\0'){
 
 
-
-        switch (type) {
+printf("_%c",*spp );
+        switch (*spp) {
             case NUMBER:
                 push(atof(s));
                 break;
@@ -55,6 +55,9 @@ int main(int argc, char const *argv[]) {
                 op2=pop();
                 push(pop()/op2);
                 break;
+            case ',':
+                spp++;
+                break;
             case '\n':
                 printf("%8g\n", pop());
                 break;
@@ -64,7 +67,7 @@ int main(int argc, char const *argv[]) {
 
         }
 
-
+        spp++;
     }
     return 0;
 }
@@ -83,34 +86,4 @@ double pop(void){
         return 0.0;
     }
 
-}
-
-int getop(char s[]){
-    int i,c;
-    while ((s[0]=c=getch())==',' || c== '\t');
-    s[1]='\0';
-    if (!isdigit(c) && c!='.')
-        return c;
-    i=0;
-    if (isdigit(c))
-        while (isdigit(s[++i]=c=getch()));
-    if (c=='.')
-        while (isdigit(s[++i]=c=getch()));
-    s[i]='\0';
-    if (c != EOF)
-        ungetch(c);
-    return NUMBER;
-
-
-}
-
-int getch(void){
-    return (bufp>0)? buf[--bufp] :  getchar();
-}
-
-void ungetch(int c){
-    if (bufp>= 100)
-        printf("ungetch: too many characters\n");
-    else
-        buf[bufp++] =c;
 }
