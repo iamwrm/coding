@@ -8,9 +8,20 @@ mingw32  gcc version 4.9.2
 #include "string.h"
 
 int search(int* hand,int lev){
-    if (lev==5) {
-        for(int i=1;i<10;i++) if (hand[i]==2) return 1;
-        return 0;
+    //printf("\nlev%d: ",lev );
+    //for(int i=1;i<10;i++) printf("_%d",hand[i] );
+
+    if (lev==6) {
+        for(int i=1;i<10;i++) if (hand[i]!=0) return 0;
+        return 1;
+    }
+
+    for(int i=1;i<8;i++){
+        if ((hand[i]>=1)&&(hand[i+1]>=1)&&(hand[i+2]>=1)){
+            hand[i]--;hand[i+1]--;hand[i+2]--;
+            if (search(hand,lev+1)==1) return 1;
+            hand[i]++;hand[i+1]++;hand[i+2]++;
+        }
     }
 
     for(int i=1;i<10;i++){
@@ -22,14 +33,14 @@ int search(int* hand,int lev){
     }
 
 
-
-    for(int i=1;i<8;i++){
-        if ((hand[i]>=1)&&(hand[i+1]>=1)&&(hand[i+2]>=1)){
-            hand[i]--;hand[i+1]--;hand[i+2]--;
+    for(int i=1;i<10;i++){
+        if (hand[i]==2){
+            hand[i]-=2;
             if (search(hand,lev+1)==1) return 1;
-            hand[i]++;hand[i+1]++;hand[i+2]++;
+            hand[i]+=2;
         }
     }
+
     return 0;
 }
 
