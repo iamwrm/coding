@@ -9,43 +9,17 @@ mingw32  gcc version 4.9.2
 #define MAX 100
 
 int sp=0;
-<<<<<<< HEAD
-double val[MAXVAL];
-=======
 double val[MAX];
 
->>>>>>> upload
 
 
 void push(double);
 double pop(void);
-<<<<<<< HEAD
-
-
-=======
->>>>>>> upload
 
 
 int main(int argc, char const *argv[]) {
     int type;
     double op2;
-<<<<<<< HEAD
-    char s[MAXOP];//"7,4,2,1,-,*,5,+,-,3,*";
-    //    7,4,2,1,-,*,5,+,-,3,*
-//char s[MAXOP]="7,4,2,1,-,*,5,+,-,3,*";
-scanf("%s",s);
-
-char* spp;
-spp=s;
-
-    while (*(spp)!='\0'){
-
-
-printf("_%c",*spp );
-        switch (*spp) {
-            case NUMBER:
-                push(atof(s));
-=======
     char s[MAX];//1,2,-,4,5,+,*
     //    7,4,2,1,-,*,5,+,-,3,*
     scanf("%s",s );
@@ -57,7 +31,6 @@ printf("_%c",*spp );
             case '5':case '6':case '7':case '8':case '9':
                 push((*spp)-'0');
                 spp++;
->>>>>>> upload
                 break;
             case '+':
                 push(pop()+pop());
@@ -75,16 +48,7 @@ printf("_%c",*spp );
             case '/':
                 op2=pop();
                 push(pop()/op2);
-<<<<<<< HEAD
-                break;
-            case ',':
                 spp++;
-                break;
-            case '\n':
-                printf("%8g\n", pop());
-=======
-                spp++;
->>>>>>> upload
                 break;
             default:
                 spp++;
@@ -92,7 +56,7 @@ printf("_%c",*spp );
 
         }
 
-        spp++;
+
     }
 
     printf("%f\n",pop() );
@@ -105,12 +69,4 @@ void push(double f){
 
 double pop(void){
         return val[--sp];
-<<<<<<< HEAD
-    else {
-        printf("stack empty\n" );
-        return 0.0;
-    }
-
-=======
->>>>>>> upload
 }
