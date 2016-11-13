@@ -9,16 +9,17 @@ mingw32  gcc version 4.9.2
 
 int main()
 {
-    printf("hehe");
-    int a[6];
-    for (int i = 0; i < 6; i++)
-    {
-        a[i]=i;
-        printf("%d",a[i]);
-    }
-    int * pt;
-    int sb=5;
-    pt=&sb;
-    printf("%p",pt);
-    getchar();
+    const int n=1000;
+
+    const int root_n=(int)(sqrt(n)+1);
+
+    int a[1001];// bool index
+    
+    for(int i=0;i<1001;i++) a[i]=1;
+
+    
+   
+    
+
+
 }
