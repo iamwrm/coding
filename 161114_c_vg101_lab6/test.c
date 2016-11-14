@@ -32,6 +32,7 @@ int main()
     points[46 - 3] = 2;
     points[45 - 3] = 2;
     points[44 - 3] = 2;
+    luozi(points, "7d", 1);
 
     plot_board(points);
 
@@ -55,7 +56,6 @@ int main()
         }
         judge(points, my_input, 1);
         plot_board(points);
-
 
         scanf("%s", input);
         my_input = luozi(points, input, 2);
@@ -135,7 +135,6 @@ int judge(int *points, int my_input, int side)
 
     int i;
     int i_find = 0;
-
     int valid = 0;
 
     for (i = 1; my_input - 8 * i >= 0; i++)
@@ -144,6 +143,8 @@ int judge(int *points, int my_input, int side)
             break;
         if (points[my_input - 8 * i] == side)
         {
+            if (i == 1)
+                break;
             i_find = i;
             valid = 1;
             for (i = 1; i < i_find; i++)
@@ -160,6 +161,8 @@ int judge(int *points, int my_input, int side)
             break;
         if (points[my_input + 8 * i] == side)
         {
+            if (i == 1)
+                break;
             i_find = i;
             valid = 1;
             for (i = 1; i < i_find; i++)
@@ -176,6 +179,8 @@ int judge(int *points, int my_input, int side)
             break;
         if (points[my_input + i] == side)
         {
+            if (i == 1)
+                break;
             i_find = i;
             valid = 1;
             for (i = 1; i < i_find; i++)
@@ -192,6 +197,8 @@ int judge(int *points, int my_input, int side)
             break;
         if (points[my_input - i] == side)
         {
+            if (i == 1)
+                break;
             i_find = i;
             valid = 1;
             for (i = 1; i < i_find; i++)
@@ -200,7 +207,80 @@ int judge(int *points, int my_input, int side)
             }
             break;
         }
-    } //left
+    }
+    //left
+    for (i = 1; i <= 8 - my_input % 8; i++)
+    {
+        if (points[my_input + i * 9] == 0)
+            break;
+        if (points[my_input + i * 9] == side)
+        {
+            if (i == 1)
+                break;
+            i_find = i;
+            valid = 1;
+            for (i = 1; i < i_find; i++)
+            {
+                points[my_input + i * 9] = side;
+            }
+            break;
+        }
+    } //right below
+
+    for (i = 1; i <= 8 - my_input % 8; i++)
+    {
+        if (points[my_input - i * 7] == 0)
+            break;
+        if (points[my_input - i * 7] == side)
+        {
+            if (i == 1)
+                break;
+            i_find = i;
+            valid = 1;
+            for (i = 1; i < i_find; i++)
+            {
+                points[my_input - i * 7] = side;
+            }
+            break;
+        }
+    } //right above
+
+    for (i = 1; i <= my_input % 8; i++)
+    {
+        if (points[my_input - 7 * i] == 0)
+            break;
+        if (points[my_input - 7 * i] == side)
+        {
+            if (i == 1)
+                break;
+            i_find = i;
+            valid = 1;
+            for (i = 1; i < i_find; i++)
+            {
+                points[my_input - 7 * i] = side;
+            }
+            break;
+        }
+    }
+    //left above
+    for (i = 1; i <= my_input % 8; i++)
+    {
+        if (points[my_input + 9 * i] == 0)
+            break;
+        if (points[my_input + 9 * i] == side)
+        {
+            if (i == 1)
+                break;
+            i_find = i;
+            valid = 1;
+            for (i = 1; i < i_find; i++)
+            {
+                points[my_input + 9 * i] = side;
+            }
+            break;
+        }
+    }
+    //left below
 
     if ((valid == 0))
         points[my_input] = 0;
