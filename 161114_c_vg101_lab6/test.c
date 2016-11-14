@@ -10,7 +10,7 @@ mingw32  gcc version 4.9.2
 
 void plot_board(int *points);
 int luozi(int *points, char *input, int side);
-int judge(int *points, int my_input);
+int judge(int *points, int my_input, int side);
 
 int main()
 {
@@ -27,6 +27,12 @@ int main()
     points[28] = 2;
     points[27 + 9] = 1;
     points[28 + 7] = 2;
+
+    points[47 - 7] = 1;
+    points[46 - 3] = 2;
+    points[45 - 3] = 2;
+    points[44 - 3] = 2;
+
     plot_board(points);
 
     while (1)
@@ -35,10 +41,33 @@ int main()
         scanf("%s", input);
 
         if (!((input[0]) >= '1' && (input[0]) <= '8') || !((input[1]) >= 'a' && (input[1]) <= 'h'))
-            break;
+        {
+            printf("Invalid input, try again\n");
+            continue;
+        }
+
         int my_input;
-        my_input = luozi(points, input, 0);
-        system("cls");
+        my_input = luozi(points, input, 1);
+        if (my_input == -1)
+        {
+            printf("there is a chess already,try again\n");
+            continue;
+        }
+        judge(points, my_input, 1);
+        plot_board(points);
+
+
+        scanf("%s", input);
+        my_input = luozi(points, input, 2);
+        if (my_input == -1)
+        {
+            printf("there is a chess already,try again\n");
+            continue;
+        }
+        judge(points, my_input, 2);
+
+        // system("cls");
+
         plot_board(points);
     }
     printf("Game over");
@@ -89,14 +118,90 @@ void plot_board(int *points)
     }
 }
 
-int luozi(int *points, char *input, int side) // white is player 0; black is the computer 1
+int luozi(int *points, char *input, int side) // white is player 1; black is the computer 2
 {
     int a;
     a = SIZE * (input[0] - '0' - 1) + input[1] - 'a';
-    points[a] = 1;
-    return a;
+    if (points[a] == 0)
+    {
+        points[a] = side;
+        return a;
+    }
+    return -1;
 }
 
-int judge(int *points, int my_input)
+int judge(int *points, int my_input, int side)
 {
+
+    int i;
+    int i_find = 0;
+
+    int valid = 0;
+
+    for (i = 1; my_input - 8 * i >= 0; i++)
+    {
+        if (points[my_input - 8 * i] == 0)
+            break;
+        if (points[my_input - 8 * i] == side)
+        {
+            i_find = i;
+            valid = 1;
+            for (i = 1; i < i_find; i++)
+            {
+                points[my_input - 8 * i] = side;
+            }
+            break;
+        }
+    }
+    //above
+    for (i = 1; my_input + 8 * i <= 64; i++)
+    {
+        if (points[my_input + 8 * i] == 0)
+            break;
+        if (points[my_input + 8 * i] == side)
+        {
+            i_find = i;
+            valid = 1;
+            for (i = 1; i < i_find; i++)
+            {
+                points[my_input + 8 * i] = side;
+            }
+            break;
+        }
+    }
+    //below
+    for (i = 1; i <= 8 - my_input % 8; i++)
+    {
+        if (points[my_input + i] == 0)
+            break;
+        if (points[my_input + i] == side)
+        {
+            i_find = i;
+            valid = 1;
+            for (i = 1; i < i_find; i++)
+            {
+                points[my_input + i] = side;
+            }
+            break;
+        }
+    }
+    //right
+    for (i = 1; i <= my_input % 8; i++)
+    {
+        if (points[my_input - i] == 0)
+            break;
+        if (points[my_input - i] == side)
+        {
+            i_find = i;
+            valid = 1;
+            for (i = 1; i < i_find; i++)
+            {
+                points[my_input - i] = side;
+            }
+            break;
+        }
+    } //left
+
+    if ((valid == 0))
+        points[my_input] = 0;
 }

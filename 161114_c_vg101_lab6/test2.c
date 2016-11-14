@@ -6,35 +6,14 @@ mingw32  gcc version 4.9.2
 #include "stdlib.h"
 #include "math.h"
 
-typedef struct point_def{
-        int row=0;
-        int column=0;
-    } point1 ;
+int main(){
 
-void plot_board();
 
-int main()
-{
-    
-    
-    plot_board();
+    int i=0;
+    for(i=0;i<=8-27%8;i++){
+        printf("%d  ",27+i);
+    }
+
     getchar();
     getchar();
-}
-
-void plot_board()
-{
-    printf(" ");
-    char abc[8]={'a','b','c','d','e','f','g','h'};
-    for(int i=0;i<8;i++){
-        printf("  %c ",abc[i]);
-    }
-    printf("\n");
-
-    printf(" +");
-    for(int i=0;i<8;i++){
-        printf("---+");
-    }
-    printf("\n");
-
 }
