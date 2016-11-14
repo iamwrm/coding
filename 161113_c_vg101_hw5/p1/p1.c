@@ -26,10 +26,22 @@ int main()
         }
     }
 
+    int result[1000];
+    int i_result = 0;
+
     for (int i = 2; i < 1001; i++)
     {
         if (a[i] == 1)
-            printf("%d\t", i);
+        {
+            
+            result[i_result]=i;
+            printf("%d\t", result[i_result]);
+            i_result++;
+            
+        }
     }
+
+
+    // result is the result array of this question
     getchar();
 }

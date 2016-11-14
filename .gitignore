@@ -7,6 +7,10 @@
 *.exe
 *.pdf
 
+# visual studio code configurations
+launch.json
+task.json
+
 
 # Bah, LaTeX junk
 *.aux
