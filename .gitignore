@@ -9,7 +9,7 @@
 
 # visual studio code configurations
 launch.json
-task.json
+tasks.json
 
 
 # Bah, LaTeX junk
