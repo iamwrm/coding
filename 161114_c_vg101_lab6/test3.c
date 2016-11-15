@@ -7,6 +7,21 @@ mingw32  gcc version 4.9.2
 #include "math.h"
 
 #define SIZE 8
+#define fx                           \
+    if (points[i_used] == 0)         \
+        break;                       \
+    if (points[i_used] == side)      \
+    {                                \
+        if (i == 1)                  \
+            break;                   \
+        i_find = i;                  \
+        valid = 1;                   \
+        for (i = 1; i < i_find; i++) \
+        {                            \
+            points[i_used] = side;   \
+        }                            \
+        break;                       \
+    }
 
 void plot_board(int *points);
 int luozi(int *points, char *input, int side);
@@ -28,8 +43,6 @@ int main()
     points[28] = 2;
     points[27 + 9] = 1;
     points[28 + 7] = 2;
-
-  
 
     plot_board(points);
 
@@ -127,7 +140,6 @@ int luozi(int *points, char *input, int side) // white is player 1; black is the
     return -1;
 }
 
-
 int judge(int *points, int my_input, int side)
 {
 
@@ -135,11 +147,14 @@ int judge(int *points, int my_input, int side)
     int i_find = 0;
     int valid = 0;
 
+    int i_eval, i_used;
+
     for (i = 1; my_input - 8 * i >= 0; i++)
     {
-        if (points[my_input - 8 * i] == 0)
+        i_used = my_input - 8 * i;
+        if (points[i_used] == 0)
             break;
-        if (points[my_input - 8 * i] == side)
+        if (points[i_used] == side)
         {
             if (i == 1)
                 break;
@@ -147,7 +162,7 @@ int judge(int *points, int my_input, int side)
             valid = 1;
             for (i = 1; i < i_find; i++)
             {
-                points[my_input - 8 * i] = side;
+                points[i_used] = side;
             }
             break;
         }
@@ -155,128 +170,44 @@ int judge(int *points, int my_input, int side)
     //above
     for (i = 1; my_input + 8 * i <= 64; i++)
     {
-        if (points[my_input + 8 * i] == 0)
-            break;
-        if (points[my_input + 8 * i] == side)
-        {
-            if (i == 1)
-                break;
-            i_find = i;
-            valid = 1;
-            for (i = 1; i < i_find; i++)
-            {
-                points[my_input + 8 * i] = side;
-            }
-            break;
-        }
+        i_used = my_input + 8 * i;
+        fx
     }
     //below
     for (i = 1; i <= 8 - my_input % 8; i++)
     {
-        if (points[my_input + i] == 0)
-            break;
-        if (points[my_input + i] == side)
-        {
-            if (i == 1)
-                break;
-            i_find = i;
-            valid = 1;
-            for (i = 1; i < i_find; i++)
-            {
-                points[my_input + i] = side;
-            }
-            break;
-        }
+        i_used = my_input + i;
+        fx
     }
     //right
     for (i = 1; i <= my_input % 8; i++)
     {
-        if (points[my_input - i] == 0)
-            break;
-        if (points[my_input - i] == side)
-        {
-            if (i == 1)
-                break;
-            i_find = i;
-            valid = 1;
-            for (i = 1; i < i_find; i++)
-            {
-                points[my_input - i] = side;
-            }
-            break;
-        }
+        i_used = my_input - i;
+        fx
     }
     //left
     for (i = 1; i <= 8 - my_input % 8; i++)
     {
-        if (points[my_input + i * 9] == 0)
-            break;
-        if (points[my_input + i * 9] == side)
-        {
-            if (i == 1)
-                break;
-            i_find = i;
-            valid = 1;
-            for (i = 1; i < i_find; i++)
-            {
-                points[my_input + i * 9] = side;
-            }
-            break;
-        }
+        i_used = my_input + i * 9;
+        fx
     } //right below
 
     for (i = 1; i <= 8 - my_input % 8; i++)
     {
-        if (points[my_input - i * 7] == 0)
-            break;
-        if (points[my_input - i * 7] == side)
-        {
-            if (i == 1)
-                break;
-            i_find = i;
-            valid = 1;
-            for (i = 1; i < i_find; i++)
-            {
-                points[my_input - i * 7] = side;
-            }
-            break;
-        }
+        i_used = my_input - i * 7;
+        fx
     } //right above
 
     for (i = 1; i <= my_input % 8; i++)
     {
-        if (points[my_input - 7 * i] == 0)
-            break;
-        if (points[my_input - 7 * i] == side)
-        {
-            if (i == 1)
-                break;
-            i_find = i;
-            valid = 1;
-            for (i = 1; i < i_find; i++)
-            {
-                points[my_input - 7 * i] = side;
-            }
-            break;
-        }
+        i_used = my_input - i * 7;
+        fx
     }
     //left above
     for (i = 1; i <= my_input % 8; i++)
     {
-        if (points[my_input + 9 * i] == 0)
-            break;
-        if (points[my_input + 9 * i] == side)
-        {
-            if (i == 1)
-                break;
-            i_find = i;
-            valid = 1;
-            for (i = 1; i < i_find; i++)
-            {
-                points[my_input + 9 * i] = side;
-            }
-            break;
-        }
+        i_used = my_input + 9 * i;
+        fx
     }
     //left below
 
