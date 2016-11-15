@@ -45,7 +45,7 @@ int main()
     void **op = (void **)a;
     five(op);
 
-    
+
     for (int i = 0; i < 5; i++)
     {
         for (int j = 0; j < 5; j++)

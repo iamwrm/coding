@@ -30,7 +30,7 @@ int main()
     points[28 + 7] = 2;
     // luozi(points, "4a", 2);
 
-    plot_board(points,1);
+    plot_board(points, 1);
 
     while (1)
     {
@@ -52,8 +52,7 @@ int main()
             continue;
         }
         judge(points, my_input, 1);
-        plot_board(points,2);
-       
+        plot_board(points, 2);
 
         //ai is here
         // scanf("%s", input);
@@ -67,7 +66,7 @@ int main()
 
         // system("cls");
         ai(points);
-        plot_board(points,1);
+        plot_board(points, 1);
     }
     printf("Game over");
     getchar();
@@ -176,7 +175,7 @@ int judge(int *points, int my_input, int side) // white is player 1; black is th
         }
     }
     //below
-    for (i = 1; i <= 8 - my_input % 8; i++)
+    for (i = 1; (i <= 8 - my_input % 8) && (my_input + i <= 64); i++)
     {
         if (points[my_input + i] == 0)
             break;
@@ -194,7 +193,7 @@ int judge(int *points, int my_input, int side) // white is player 1; black is th
         }
     }
     //right
-    for (i = 1; i <= my_input % 8; i++)
+    for (i = 1; (i <= my_input % 8) && (my_input - i >= 0); i++)
     {
         if (points[my_input - i] == 0)
             break;
@@ -212,7 +211,7 @@ int judge(int *points, int my_input, int side) // white is player 1; black is th
         }
     }
     //left
-    for (i = 1; i <= 8 - my_input % 8; i++)
+    for (i = 1; (i <= 8 - my_input % 8) && (my_input + i * 9 <= 64); i++)
     {
         if (points[my_input + i * 9] == 0)
             break;
@@ -230,7 +229,7 @@ int judge(int *points, int my_input, int side) // white is player 1; black is th
         }
     } //right below
 
-    for (i = 1; i <= 8 - my_input % 8; i++)
+    for (i = 1; (i <= 8 - my_input % 8) && (my_input - 7 * i >= 0); i++)
     {
         if (points[my_input - i * 7] == 0)
             break;
@@ -248,11 +247,11 @@ int judge(int *points, int my_input, int side) // white is player 1; black is th
         }
     } //right above
 
-    for (i = 1; i <= my_input % 8; i++)
+    for (i = 1; (i <= my_input % 8) && (my_input - 9 * i >= 0); i++)
     {
-        if (points[my_input - 7 * i] == 0)
+        if (points[my_input - 9 * i] == 0)
             break;
-        if (points[my_input - 7 * i] == side)
+        if (points[my_input - 9 * i] == side)
         {
             if (i == 1)
                 break;
@@ -260,7 +259,7 @@ int judge(int *points, int my_input, int side) // white is player 1; black is th
             valid = 1;
             for (i = 1; i < i_find; i++)
             {
-                points[my_input - 7 * i] = side;
+                points[my_input - 9 * i] = side;
             }
             break;
         }
