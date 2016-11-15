@@ -8,7 +8,7 @@ mingw32  gcc version 4.9.2
 
 #define SIZE 8
 
-void plot_board(int *points);
+void plot_board(int *points, int turn);
 int luozi(int *points, char *input, int side);
 int judge(int *points, int my_input, int side);
 int ai(int *points);
@@ -28,10 +28,9 @@ int main()
     points[28] = 2;
     points[27 + 9] = 1;
     points[28 + 7] = 2;
+    // luozi(points, "4a", 2);
 
-  
-
-    plot_board(points);
+    plot_board(points,1);
 
     while (1)
     {
@@ -49,31 +48,38 @@ int main()
         if (my_input == -1)
         {
             printf("there is a chess already,try again\n");
+            luozi(points, input, 0);
             continue;
         }
         judge(points, my_input, 1);
-        plot_board(points);
+        plot_board(points,2);
+       
 
-        scanf("%s", input);
-        my_input = luozi(points, input, 2);
-        if (my_input == -1)
-        {
-            printf("there is a chess already,try again\n");
-            continue;
-        }
-        judge(points, my_input, 2);
+        //ai is here
+        // scanf("%s", input);
+        // my_input = luozi(points, input, 2);
+        // if (my_input == -1)
+        // {
+        //     printf("there is a chess already,try again\n");
+        //     continue;
+        // }
+        // judge(points, my_input, 2);
 
         // system("cls");
-
-        plot_board(points);
+        ai(points);
+        plot_board(points,1);
     }
     printf("Game over");
     getchar();
     getchar();
 }
 
-void plot_board(int *points)
+void plot_board(int *points, int turn)
 {
+    if (turn == 1)
+        printf("white turn\n");
+    else
+        printf("black turn\n");
 
     //print the above line --------------
     printf(" ");
@@ -127,8 +133,7 @@ int luozi(int *points, char *input, int side) // white is player 1; black is the
     return -1;
 }
 
-
-int judge(int *points, int my_input, int side)
+int judge(int *points, int my_input, int side) // white is player 1; black is the computer 2|   return valid: 1 is yes 0 is no
 {
 
     int i;
@@ -263,9 +268,9 @@ int judge(int *points, int my_input, int side)
     //left above
     for (i = 1; i <= my_input % 8; i++)
     {
-        if (points[my_input + 9 * i] == 0)
+        if (points[my_input + 7 * i] == 0)
             break;
-        if (points[my_input + 9 * i] == side)
+        if (points[my_input + 7 * i] == side)
         {
             if (i == 1)
                 break;
@@ -273,7 +278,7 @@ int judge(int *points, int my_input, int side)
             valid = 1;
             for (i = 1; i < i_find; i++)
             {
-                points[my_input + 9 * i] = side;
+                points[my_input + 7 * i] = side;
             }
             break;
         }
@@ -282,4 +287,35 @@ int judge(int *points, int my_input, int side)
 
     if ((valid == 0))
         points[my_input] = 0;
+
+    return valid;
+}
+
+int ai(int *points)
+{
+    char ai_s[3];
+    int ai_input;
+    int success = 0;
+    for (int i = 0; i < 100; i++)
+    {
+
+        //TODO: ai_s
+        for (int j = 0; j < 64; j++)
+        {
+            if ((points[j] == 1) || (points[j] == 2))
+                continue;
+            ai_s[0] = (int)(j / 8 + 1) + '0';
+            ai_s[1] = j % 8 + 'a';
+
+            ai_input = luozi(points, ai_s, 2);
+
+            success = judge(points, ai_input, 2);
+            int aaa = points[ai_input];
+            if (success == 1)
+                return 1;
+            if (success == 0)
+                continue;
+        }
+    }
+    printf("\n\n\n===========I choose to die============\n\n\n");
 }
