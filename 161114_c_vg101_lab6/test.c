@@ -301,6 +301,8 @@ int ai(int *points)
         //TODO: ai_s
         for (int j = 0; j < 64; j++)
         {
+            // if (j >= 32)
+                // break;
             if ((points[j] == 1) || (points[j] == 2))
                 continue;
             ai_s[0] = (int)(j / 8 + 1) + '0';
@@ -316,5 +318,24 @@ int ai(int *points)
                 continue;
         }
     }
-    printf("\n\n\n===========I choose to die============\n\n\n");
+    printf("\n\n\n===========Game Ends============\n\n\n");
+    int cal1 = 0;
+    int cal2 = 0;
+    for (int i = 0; i < 64; i++)
+    {
+        if (points[i] == 1)
+        {
+            cal1++;
+        }
+        if (points[i] == 2)
+        {
+            cal2++;
+        }
+    }
+    printf("white points: %d\n", cal1++);
+    printf("black points: %d\n", cal2++);
+    if (cal1 > cal2)
+        printf("white wins");
+    if (cal2 < cal1)
+        printf("black wins");
 }
