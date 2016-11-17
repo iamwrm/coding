@@ -15,6 +15,8 @@ int ai(int *points);
 
 int main()
 {
+    int cal11 = 0;
+    int cal12 = 0;
     printf("REVERSI\n\nYou can go first on the first game then we will take turns.\nYou will be white - <o> \nI will be black - <x>. \n");
     printf("Select a square for your move by typing a digit for the row\nand a letter for the column with no space between.");
     printf("\n");
@@ -28,7 +30,8 @@ int main()
     points[28] = 2;
     points[27 + 9] = 1;
     points[28 + 7] = 2;
-    // luozi(points, "4a", 2);
+    // luozi(points, "2a", 2);
+    // luozi(points, "1h", 1);
 
     plot_board(points, 1);
 
@@ -67,8 +70,31 @@ int main()
         // system("cls");
         ai(points);
         plot_board(points, 1);
+
+        cal11 = 0;
+        cal12 = 0;
+        for (int i = 0; i < 64; i++)
+        {
+            if (points[i] == 1)
+            {
+                cal11++;
+            }
+            if (points[i] == 2)
+            {
+                cal12++;
+            }
+        }
+        if ((cal11 + cal12 == 64) || (cal11 == 0) || (cal12 == 0))
+            break;
     }
-    printf("Game over");
+    printf("Game over\n");
+
+    printf("white points: %d\n", cal11);
+    printf("black points: %d\n", cal12);
+    if (cal11 > cal12)
+        printf("white wins");
+    if (cal12 > cal11)
+        printf("black wins");
     getchar();
     getchar();
 }
@@ -76,9 +102,9 @@ int main()
 void plot_board(int *points, int turn)
 {
     if (turn == 1)
-        printf("white turn\n");
+        printf("\n\n\nwhite turn\n");
     else
-        printf("black turn\n");
+        printf("\n\n\nblack turn\n");
 
     //print the above line --------------
     printf(" ");
@@ -157,7 +183,7 @@ int judge(int *points, int my_input, int side) // white is player 1; black is th
         }
     }
     //above
-    for (i = 1; my_input + 8 * i <= 64; i++)
+    for (i = 1; my_input + 8 * i <= 63; i++)
     {
         if (points[my_input + 8 * i] == 0)
             break;
@@ -175,7 +201,7 @@ int judge(int *points, int my_input, int side) // white is player 1; black is th
         }
     }
     //below
-    for (i = 1; (i <= 8 - my_input % 8) && (my_input + i <= 64); i++)
+    for (i = 1; (i <= 8 - my_input % 8-1 ) && (my_input + i <= 64); i++)
     {
         if (points[my_input + i] == 0)
             break;
@@ -193,7 +219,7 @@ int judge(int *points, int my_input, int side) // white is player 1; black is th
         }
     }
     //right
-    for (i = 1; (i <= my_input % 8) && (my_input - i >= 0); i++)
+    for (i = 1; (i <= my_input % 8 ) && (my_input - i >= 0); i++)
     {
         if (points[my_input - i] == 0)
             break;
@@ -211,7 +237,7 @@ int judge(int *points, int my_input, int side) // white is player 1; black is th
         }
     }
     //left
-    for (i = 1; (i <= 8 - my_input % 8) && (my_input + i * 9 <= 64); i++)
+    for (i = 1; (i <= 8 - my_input % 8 - 1) && (my_input + i * 9 <= 63); i++)
     {
         if (points[my_input + i * 9] == 0)
             break;
@@ -229,7 +255,7 @@ int judge(int *points, int my_input, int side) // white is player 1; black is th
         }
     } //right below
 
-    for (i = 1; (i <= 8 - my_input % 8) && (my_input - 7 * i >= 0); i++)
+    for (i = 1; (i <= 8 - my_input % 8 - 1) && (my_input - 7 * i >= 0); i++)
     {
         if (points[my_input - i * 7] == 0)
             break;
@@ -247,7 +273,7 @@ int judge(int *points, int my_input, int side) // white is player 1; black is th
         }
     } //right above
 
-    for (i = 1; (i <= my_input % 8) && (my_input - 9 * i >= 0); i++)
+    for (i = 1; (i <= my_input % 8 ) && (my_input - 9 * i >= 0); i++)
     {
         if (points[my_input - 9 * i] == 0)
             break;
@@ -265,7 +291,7 @@ int judge(int *points, int my_input, int side) // white is player 1; black is th
         }
     }
     //left above
-    for (i = 1; i <= my_input % 8; i++)
+    for (i = 1; i <= my_input % 8 ; i++)
     {
         if (points[my_input + 7 * i] == 0)
             break;
@@ -298,11 +324,11 @@ int ai(int *points)
     for (int i = 0; i < 100; i++)
     {
 
-        //TODO: ai_s
-        for (int j = 0; j < 64; j++)
+        int j = 0;
+        for (j = 0; j < 64; j += 2)
         {
-            // if (j >= 32)
-                // break;
+            if (j >= 32)
+                break;
             if ((points[j] == 1) || (points[j] == 2))
                 continue;
             ai_s[0] = (int)(j / 8 + 1) + '0';
@@ -313,9 +339,31 @@ int ai(int *points)
             success = judge(points, ai_input, 2);
             int aaa = points[ai_input];
             if (success == 1)
+                // printf("%c%c\n", ai_s[0], ai_s[1]);
                 return 1;
             if (success == 0)
                 continue;
+        }
+
+        if (j >= 32)
+        {
+            for (j = 63; j >= 0; j--)
+            {
+                if ((points[j] == 1) || (points[j] == 2))
+                    continue;
+                ai_s[0] = (int)(j / 8 + 1) + '0';
+                ai_s[1] = j % 8 + 'a';
+
+                ai_input = luozi(points, ai_s, 2);
+
+                success = judge(points, ai_input, 2);
+                int aaa = points[ai_input];
+                if (success == 1)
+                    // printf("%c%c\n", ai_s[0], ai_s[1]);
+                    return 1;
+                if (success == 0)
+                    continue;
+            }
         }
     }
     printf("\n\n\n===========Game Ends============\n\n\n");
@@ -332,10 +380,10 @@ int ai(int *points)
             cal2++;
         }
     }
-    printf("white points: %d\n", cal1++);
-    printf("black points: %d\n", cal2++);
+    printf("white points: %d\n", cal1);
+    printf("black points: %d\n", cal2);
     if (cal1 > cal2)
         printf("white wins");
-    if (cal2 < cal1)
+    if (cal2 > cal1)
         printf("black wins");
 }

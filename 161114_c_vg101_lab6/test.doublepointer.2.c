@@ -37,6 +37,9 @@ void five(void **op)
     for (int i = 0; i < 5; i++)
         for (int j = 0; j < 5; j++)
             *((int **)op + i * 5 + j) = b + i * 5 + j;
+
+
+    free(b);
 }
 
 int main()
