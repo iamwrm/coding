@@ -7,8 +7,31 @@ mingw32  gcc version 4.9.2
 #include "math.h"
 #include <string.h>
 
+int num=0;
+
 void p(int N, int lev, char *str)
 {
+    if (lev == N)
+    {
+        for (int i = 0; i < N; i++)
+            printf("%c", *(str + i));
+        printf("----%d\n",++num);
+        return;
+    }
+
+    for (int i = lev-1; i < N; i++)
+    {
+        char temp;
+        temp = *(str);
+        *(str) = *(str + i);
+        *(str + i) = temp;
+
+        p(N, lev + 1, str);
+
+        temp = *(str);
+        *(str) = *(str + i);
+        *(str + i) = temp;
+    }
 }
 
 int main()
@@ -24,9 +47,9 @@ int main()
         *(str + i) = i + '0' + 1;
     }
     *(str + i) = '\0';
-    printf("%s", str);
+    // printf("%s", str);
 
-    // p(N,1,str);
+    p(N, 1, str);
     getchar();
     getchar();
     return 0;
