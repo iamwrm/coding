@@ -47,7 +47,7 @@ int main()
     {
         printf("%d ", *(arr + i));
     }
-
+    free(arr);
     getchar();
     getchar();
 }
