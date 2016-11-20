@@ -24,11 +24,13 @@ keywords:   文件操作
 void plot_one_cube(int x, int y, char arr[][FILE_COL])
 {
 
-    
     // line 0
     const int width = 6;
-    for (int i = 0; i < width + 1; i++)
+    if (arr[y][x] == ' ')
+        arr[y][x] = '_';
+    for (int i = 1; i < width + 1; i++)
     {
+
         arr[y][x + i] = '_';
     }
 
@@ -44,8 +46,11 @@ void plot_one_cube(int x, int y, char arr[][FILE_COL])
             else
                 arr[y + 1 + dev][x + i - dev] = ' ';
         }
+        arr[y + 1 + 1][x + width] = ' ';
         arr[y + 1 + dev][x + width - dev] = '/';
         arr[y + 1 + dev][x + width + 1] = '|';
+        arr[y + 1 + 2][x + width] = ' ';
+        arr[y + 1 + 2][x + width - 1] = ' ';
     }
 
     //line 4~6
@@ -62,6 +67,10 @@ void plot_one_cube(int x, int y, char arr[][FILE_COL])
         }
         arr[y + 1 + dev][x + width - 2] = '|';
         arr[y + 1 + dev][x + width + 1 - dev + 3] = '/';
+
+        arr[y + 1 + 3][x + width - 1] = ' ';
+        arr[y + 1 + 3][x + width] = ' ';
+        arr[y + 1 + 4][x + width - 1] = ' ';
     }
 }
 
@@ -84,10 +93,13 @@ int main()
     int matin[3][3] = {
         0, 0, 0, 1, 3, 1, 0, 0, 0,
     }; //matrix input
-
     
+    plot_one_cube(15, 18, arr);
     plot_one_cube(15, 15, arr);
     plot_one_cube(15, 12, arr);
+    plot_one_cube(15, 9, arr);
+    
+    plot_one_cube(12, 15, arr);
 
     // 将数组写入txt
     for (int i = 0; i < FILE_ROW; i++)
