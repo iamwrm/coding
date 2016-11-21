@@ -18,8 +18,8 @@ keywords:   文件操作
 #include <string.h>
 
 // 输出文件前的字符数组的长宽
-#define FILE_ROW 30
-#define FILE_COL 50
+#define FILE_ROW 60
+#define FILE_COL 60
 #define width 6
 
 void plot_one_cube(int x, int y, char arr[][FILE_COL])
@@ -106,6 +106,48 @@ void writein(FILE *fp, char arr[][FILE_COL])
     }
 }
 
+void plot_one_mine(int x, int y, char arr[][FILE_COL])
+{
+    
+    // line 0
+    //if (arr[y][x] == ' ')
+        arr[y][x] = '_';
+    for (int i = 1; i < width + 1; i++)
+    {
+
+        arr[y][x + i] = '_';
+    }
+
+    //line 1~3
+    for (int dev = 0; dev < 3; dev++)
+    {
+        /*if (dev == 2)
+        {
+            if (arr[y + 1 + dev][x - 1 - dev] == ' ')
+                arr[y + 1 + dev][x - 1 - dev] = '/';
+        }
+        else
+        {
+            arr[y + 1 + dev][x - 1 - dev] = '/';
+        }*/
+        arr[y + 1 + dev][x - 1 - dev] = '/';
+
+        for (int i = 0; i < width; i++)
+        {
+            if (dev == 3 - 1)
+                arr[y + 1 + dev][x + i - dev] = '_';
+            else
+                arr[y + 1 + dev][x + i - dev] = ' ';
+        }
+        arr[y + 1 + 1][x + width] = ' ';
+        arr[y + 1 + dev][x + width - dev] = '/';
+        arr[y + 1 + dev][x ] = '|';
+        arr[y + 1 + 2][x + width] = ' ';
+        arr[y + 1 + 2][x + width - 1] = ' ';
+    }
+
+}
+
 int main()
 {
     //define file handle
@@ -135,17 +177,21 @@ int main()
         for (j = 0; j < 3; j++)
         {
             int temp = matin[i][j];
+
+            if (temp>=0){
             for (k = 0; k < temp; k++)
             {
                 plot_one_cube(20 + 7 * j - 3 * i, 15 - 3 * k + 3 * i, arr);
                 //
 
                 //
-            }
+            }}
+            else{}
             writein(fp, arr);
         }
     }
 
+    plot_one_mine(40,40,arr);
     // 将数组写入txt
     writein(fp, arr);
     getchar();
