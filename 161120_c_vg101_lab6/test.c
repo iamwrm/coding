@@ -37,8 +37,16 @@ void plot_one_cube(int x, int y, char arr[][FILE_COL])
     //line 1~3
     for (int dev = 0; dev < 3; dev++)
     {
+        if (dev == 2)
+        {
+            if (arr[y + 1 + dev][x - 1 - dev] == ' ')
+                arr[y + 1 + dev][x - 1 - dev] = '/';
+        }
+        else
+        {
+            arr[y + 1 + dev][x - 1 - dev] = '/';
+        }
 
-        arr[y + 1 + dev][x - 1 - dev] = '/';
         for (int i = 0; i < width; i++)
         {
             if (dev == 3 - 1)
