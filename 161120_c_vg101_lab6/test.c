@@ -37,7 +37,7 @@ void plot_one_cube(int x, int y, char arr[][FILE_COL])
     //line 1~3
     for (int dev = 0; dev < 3; dev++)
     {
-        if (dev == 2)
+        /*if (dev == 2)
         {
             if (arr[y + 1 + dev][x - 1 - dev] == ' ')
                 arr[y + 1 + dev][x - 1 - dev] = '/';
@@ -45,7 +45,8 @@ void plot_one_cube(int x, int y, char arr[][FILE_COL])
         else
         {
             arr[y + 1 + dev][x - 1 - dev] = '/';
-        }
+        }*/
+        arr[y + 1 + dev][x - 1 - dev] = '/';
 
         for (int i = 0; i < width; i++)
         {
@@ -123,7 +124,7 @@ int main()
 
     //matrix input
     int matin[3][3] = {
-        3, 2, 1, 0, 0, 0, 0, 0, 0,
+        3, 2, 1, 1, 2, 3, 5, 2, 1,
     };
 
     //[y][x]      x  y   第y行 第x列
@@ -136,7 +137,7 @@ int main()
             int temp = matin[i][j];
             for (k = 0; k < temp; k++)
             {
-                plot_one_cube(20 + 7 * j, 15 - 3 * k, arr);
+                plot_one_cube(20 + 7 * j - 3 * i, 15 - 3 * k + 3 * i, arr);
                 //
 
                 //
