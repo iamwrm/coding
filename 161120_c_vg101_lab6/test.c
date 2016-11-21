@@ -92,8 +92,8 @@ void writein(FILE *fp, char arr[][FILE_COL])
 
             if (i == FILE_ROW - 1)
             {
-                fprintf(fp, "=");
-                printf("=");
+                fprintf(fp, " ");
+                printf(" ");
             }
             else
             {
@@ -101,8 +101,8 @@ void writein(FILE *fp, char arr[][FILE_COL])
                 printf("%c", arr[i][j]);
             }
         }
-        fprintf(fp, "|\n");
-        printf("|\n");
+        fprintf(fp, "\n");
+        printf("\n");
     }
 }
 
@@ -169,7 +169,7 @@ int main()
 
     //matrix input
     int matin[3][3] = {
-        6, -1, -1, 1, -1, -1, -1, -1, -1,
+        0, 0, 0, 2, 5, 2, 0, 0, 0,
     };
 
     // int ttemp = 0;
@@ -207,7 +207,7 @@ int main()
                 }
             else
             {
-                plot_one_mine(13 + 7 * j - 3 * i, 15  + 3 * i + 3, arr);
+                plot_one_mine(13 + 7 * j - 3 * i, 15 + 3 * i + 3, arr);
             }
             // writein(fp, arr);
         }
@@ -215,7 +215,7 @@ int main()
 
     // 将数组写入txt
     writein(fp, arr);
-    getchar();
+    // getchar();
     //close file
     fclose(fp);
     return 0;
