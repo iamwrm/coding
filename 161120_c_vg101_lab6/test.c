@@ -108,9 +108,9 @@ void writein(FILE *fp, char arr[][FILE_COL])
 
 void plot_one_mine(int x, int y, char arr[][FILE_COL])
 {
-    
+    y += 9;
     // line 0
-    //if (arr[y][x] == ' ')
+    if (arr[y][x] == ' ')
         arr[y][x] = '_';
     for (int i = 1; i < width + 1; i++)
     {
@@ -141,11 +141,10 @@ void plot_one_mine(int x, int y, char arr[][FILE_COL])
         }
         arr[y + 1 + 1][x + width] = ' ';
         arr[y + 1 + dev][x + width - dev] = '/';
-        arr[y + 1 + dev][x ] = '|';
+        arr[y + 1 + dev][x] = '|';
         arr[y + 1 + 2][x + width] = ' ';
         arr[y + 1 + 2][x + width - 1] = ' ';
     }
-
 }
 
 int main()
@@ -166,8 +165,28 @@ int main()
 
     //matrix input
     int matin[3][3] = {
-        3, 2, 1, 1, 2, 3, 5, 2, 1,
+        0, 0, 0, 0, -1, 0, -1, -1, 0,
     };
+
+    // int ttemp = 0;
+    // for (int i = 0; i < 3; i++)
+    // {
+    //     for (int j = 0; j < 3; j++)
+    //     {
+    //         if (matin[i][j] < ttemp)
+    //         {
+    //             ttemp = matin[i][j];
+    //         }
+    //     }
+    // }
+    // for (int i = 0; i < 3; i++)
+    // {
+    //     for (int j = 0; j < 3; j++)
+    //     {
+
+    //         matin[i][j] += -ttemp;
+    //     }
+    // }
 
     //[y][x]      x  y   第y行 第x列
     // plot_one_cube(20, 15, arr);
@@ -178,20 +197,19 @@ int main()
         {
             int temp = matin[i][j];
 
-            if (temp>=0){
-            for (k = 0; k < temp; k++)
+            if (temp >= 0)
+                for (k = 0; k < temp; k++)
+                {
+                    plot_one_cube(20 + 7 * j - 3 * i, 15 - 3 * k + 3 * i, arr);
+                }
+            else
             {
-                plot_one_cube(20 + 7 * j - 3 * i, 15 - 3 * k + 3 * i, arr);
-                //
-
-                //
-            }}
-            else{}
+                plot_one_mine(20 + 7 * j - 3 * i, 15 - 3 * k + 3 * i, arr);
+            }
             writein(fp, arr);
         }
     }
 
-    plot_one_mine(40,40,arr);
     // 将数组写入txt
     writein(fp, arr);
     getchar();
