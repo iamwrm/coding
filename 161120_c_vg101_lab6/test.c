@@ -20,12 +20,12 @@ keywords:   文件操作
 // 输出文件前的字符数组的长宽
 #define FILE_ROW 30
 #define FILE_COL 50
+#define width 6
 
 void plot_one_cube(int x, int y, char arr[][FILE_COL])
 {
 
     // line 0
-    const int width = 6;
     if (arr[y][x] == ' ')
         arr[y][x] = '_';
     for (int i = 1; i < width + 1; i++)
@@ -74,6 +74,29 @@ void plot_one_cube(int x, int y, char arr[][FILE_COL])
     }
 }
 
+void writein(FILE *fp, char arr[][FILE_COL])
+{
+    for (int i = 0; i < FILE_ROW; i++)
+    {
+        for (int j = 0; j < FILE_COL; j++)
+        {
+
+            if (i == FILE_ROW - 1)
+            {
+                fprintf(fp, "=");
+                printf("=");
+            }
+            else
+            {
+                fprintf(fp, "%c", arr[i][j]);
+                printf("%c", arr[i][j]);
+            }
+        }
+        fprintf(fp, "|\n");
+        printf("|\n");
+    }
+}
+
 int main()
 {
     //define file handle
@@ -90,31 +113,32 @@ int main()
         }
     }
 
+    //matrix input
     int matin[3][3] = {
-        0, 0, 0, 1, 3, 1, 0, 0, 0,
-    }; //matrix input
+        3, 2, 1, 0, 0, 0, 0, 0, 0,
+    };
 
-    plot_one_cube(20, 15, arr);
-
-    // 将数组写入txt
-    for (int i = 0; i < FILE_ROW; i++)
+    //[y][x]      x  y   第y行 第x列
+    // plot_one_cube(20, 15, arr);
+    int i, j, k;
+    for (i = 0; i < 3; i++)
     {
-        for (int j = 0; j < FILE_COL; j++)
+        for (j = 0; j < 3; j++)
         {
-            fprintf(fp, "%c", arr[i][j]);
-            printf("%c", arr[i][j]);
-
-            if (j == FILE_ROW - 1)
+            int temp = matin[i][j];
+            for (k = 0; k < temp; k++)
             {
-                fprintf(fp, "=", arr[i][j])
-                fprintf(fp, "=", arr[i][j]);
-            }
-        }
+                plot_one_cube(20 + 7 * j, 15 - 3 * k, arr);
+                //
 
-        fprintf(fp, "|\n");
-        printf("|\n");
+                //
+            }
+            writein(fp, arr);
+        }
     }
 
+    // 将数组写入txt
+    writein(fp, arr);
     getchar();
     //close file
     fclose(fp);
