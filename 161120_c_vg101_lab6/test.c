@@ -18,8 +18,8 @@ keywords:   文件操作
 #include <string.h>
 
 // 输出文件前的字符数组的长宽
-#define FILE_ROW 60
-#define FILE_COL 60
+#define FILE_ROW 30
+#define FILE_COL 35
 #define width 6
 
 void plot_one_cube(int x, int y, char arr[][FILE_COL])
@@ -108,7 +108,6 @@ void writein(FILE *fp, char arr[][FILE_COL])
 
 void plot_one_mine(int x, int y, char arr[][FILE_COL])
 {
-    y += 9;
     // line 0
     if (arr[y][x] == ' ')
         arr[y][x] = '_';
@@ -170,7 +169,7 @@ int main()
 
     //matrix input
     int matin[3][3] = {
-        5, 0, 0, 3, -1, 0, -1, -1, 0,
+        6, -1, -1, 1, -1, -1, -1, -1, -1,
     };
 
     // int ttemp = 0;
@@ -204,13 +203,13 @@ int main()
             if (temp >= 0)
                 for (k = 0; k < temp; k++)
                 {
-                    plot_one_cube(20 + 7 * j - 3 * i, 15 - 3 * k + 3 * i, arr);
+                    plot_one_cube(13 + 7 * j - 3 * i, 15 - 3 * k + 3 * i, arr);
                 }
             else
             {
-                plot_one_mine(20 + 7 * j - 3 * i, 15 - 3 * k + 3 * i + 3, arr);
+                plot_one_mine(13 + 7 * j - 3 * i, 15  + 3 * i + 3, arr);
             }
-            writein(fp, arr);
+            // writein(fp, arr);
         }
     }
 
