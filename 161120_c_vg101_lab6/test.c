@@ -5,7 +5,7 @@ mingw32  gcc version 4.9.2
  Copyright (c) 2016 <iamwrm>
  <author>           <version>      <date>                   <change>
  Wang, Ren          1.0             2016-11-20              完成画一个正方体
- Wang, Ren          1.1             2016-11-21                               
+ Wang, Ren          1.1             2016-11-21              完成，但是两个连起来的凹陷处中间依然有分隔                 
  
 description: 打印 3*3 的方块
 keywords:   文件操作
@@ -112,7 +112,10 @@ void plot_one_mine(int x, int y, char arr[][FILE_COL])
     // line 0
     if (arr[y][x] == ' ')
         arr[y][x] = '_';
-    for (int i = 1; i < width + 1; i++)
+    if (arr[y][x + 1] == ' ')
+        arr[y][x + 1] = '_';
+
+    for (int i = 2; i < width + 1; i++)
     {
 
         arr[y][x + i] = '_';
@@ -141,7 +144,9 @@ void plot_one_mine(int x, int y, char arr[][FILE_COL])
         }
         arr[y + 1 + 1][x + width] = ' ';
         arr[y + 1 + dev][x + width - dev] = '/';
+
         arr[y + 1 + dev][x] = '|';
+
         arr[y + 1 + 2][x + width] = ' ';
         arr[y + 1 + 2][x + width - 1] = ' ';
     }
@@ -165,7 +170,7 @@ int main()
 
     //matrix input
     int matin[3][3] = {
-        0, 0, 0, 0, -1, 0, -1, -1, 0,
+        5, 0, 0, 3, -1, 0, -1, -1, 0,
     };
 
     // int ttemp = 0;
@@ -183,7 +188,6 @@ int main()
     // {
     //     for (int j = 0; j < 3; j++)
     //     {
-
     //         matin[i][j] += -ttemp;
     //     }
     // }
@@ -204,7 +208,7 @@ int main()
                 }
             else
             {
-                plot_one_mine(20 + 7 * j - 3 * i, 15 - 3 * k + 3 * i, arr);
+                plot_one_mine(20 + 7 * j - 3 * i, 15 - 3 * k + 3 * i + 3, arr);
             }
             writein(fp, arr);
         }
