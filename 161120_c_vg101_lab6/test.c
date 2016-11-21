@@ -3,11 +3,11 @@ mingw32  gcc version 4.9.2
  -std=c++11					
  MIT License 
  Copyright (c) 2016 <iamwrm>
- <author>           <version>      <date>  
- Wang, Ren          1.0             2016-11-20
-
+ <author>           <version>      <date>                   <change>
+ Wang, Ren          1.0             2016-11-20              完成画一个正方体
+ Wang, Ren          1.1             2016-11-21                               
  
-Description: 打印 3*3 的方块
+description: 打印 3*3 的方块
 keywords:   文件操作
 
  */
@@ -18,8 +18,8 @@ keywords:   文件操作
 #include <string.h>
 
 // 输出文件前的字符数组的长宽
-#define FILE_ROW 50
-#define FILE_COL 100
+#define FILE_ROW 30
+#define FILE_COL 50
 
 void plot_one_cube(int x, int y, char arr[][FILE_COL])
 {
@@ -93,13 +93,8 @@ int main()
     int matin[3][3] = {
         0, 0, 0, 1, 3, 1, 0, 0, 0,
     }; //matrix input
-    
-    plot_one_cube(15, 18, arr);
-    plot_one_cube(15, 15, arr);
-    plot_one_cube(15, 12, arr);
-    plot_one_cube(15, 9, arr);
-    
-    plot_one_cube(12, 15, arr);
+
+    plot_one_cube(20, 15, arr);
 
     // 将数组写入txt
     for (int i = 0; i < FILE_ROW; i++)
@@ -107,10 +102,20 @@ int main()
         for (int j = 0; j < FILE_COL; j++)
         {
             fprintf(fp, "%c", arr[i][j]);
+            printf("%c", arr[i][j]);
+
+            if (j == FILE_ROW - 1)
+            {
+                fprintf(fp, "=", arr[i][j])
+                fprintf(fp, "=", arr[i][j]);
+            }
         }
-        fprintf(fp, "\n");
+
+        fprintf(fp, "|\n");
+        printf("|\n");
     }
 
+    getchar();
     //close file
     fclose(fp);
     return 0;
