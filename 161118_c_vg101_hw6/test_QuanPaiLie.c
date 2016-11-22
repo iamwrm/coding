@@ -7,19 +7,19 @@ mingw32  gcc version 4.9.2
 #include "math.h"
 #include <string.h>
 
-int num=0;
+int num = 0;
 
 void p(int N, int lev, char *str)
 {
-    if (lev == N)
+    if (lev == N + 1)
     {
         for (int i = 0; i < N; i++)
             printf("%c", *(str + i));
-        printf("----%d\n",++num);
+        printf("----%d\n", ++num);
         return;
     }
 
-    for (int i = lev-1; i < N; i++)
+    for (int i = lev - 1; i < N; i++)
     {
         char temp;
         temp = *(str);

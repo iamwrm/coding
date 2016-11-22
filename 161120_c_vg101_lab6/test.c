@@ -3,9 +3,9 @@ mingw32  gcc version 4.9.2
  -std=c++11					
  MIT License 
  Copyright (c) 2016 <iamwrm>
- <author>           <version>      <date>                   <change>
- Wang, Ren          1.0             2016-11-20              完成画一个正方体
- Wang, Ren          1.1             2016-11-21              完成，但是两个连起来的凹陷处中间依然有分隔                 
+ <author>           <version>           <date>                   <change>
+  iamwrm 	         1.0             2016-11-20              完成画一个正方体
+  iamwrm             1.1             2016-11-21              完成，但是两个连起来的凹陷处中间依然有分隔                 
  
 description: 打印 3*3 的方块
 keywords:   文件操作
@@ -169,7 +169,7 @@ int main()
 
     //matrix input
     int matin[3][3] = {
-        0, 0, 0, 2, 5, 2, 0, 0, 0,
+        5, 5, 5,5 , 3, 3, 5, 4, 4,
     };
 
     // int ttemp = 0;
