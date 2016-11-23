@@ -19,7 +19,7 @@ keywords:   文件操作
 #include <string.h>
 
  // 输出文件前的字符数组的长宽
-#define FILE_ROW 60
+#define FILE_ROW 100
 #define FILE_COL 35
 #define width 6
 
@@ -125,10 +125,12 @@ int main()
 	}
 
 	//matrix input
-	int matin[3][3] = {
-	   1, 1,1,1 , 1, 1, 1, -3, 1,
-	};
+	// int matin[3][3] = {
+	//    1, 1,1,1 , 1, 1, 1, -3, 1,
+	// };
 
+int matin[3][3] = {
+	-5 ,13, 4, 10, 7, 0, 9, -3, 1 };
 
 	//[y][x]      x  y   第y行 第x列
 	// plot_one_cube(20, 15, arr);
@@ -142,13 +144,13 @@ int main()
 			if (temp >= 0)
 				for (k = 0; k < temp; k++)
 				{
-					plot_one_cube(13 + 7 * j - 3 * i, 15 - 3 * k + 3 * i, arr);
+					plot_one_cube(13 + 7 * j - 3 * i, 45 - 3 * k + 3 * i, arr);
 				}
 			else
 			{
 				for (k = 0; k < -temp; k++)
 				{
-					plot_one_cube(13 + 7 * j - 3 * i, 15 - 3 * k + 3 * i - 3 * temp, arr);
+					plot_one_cube(13 + 7 * j - 3 * i, 45 - 3 * k + 3 * i - 3 * temp, arr);
 				}
 			}
 			// writein(fp, arr);
