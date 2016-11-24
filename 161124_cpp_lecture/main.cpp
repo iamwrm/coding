@@ -50,8 +50,7 @@ int main()
     node *a;
     a = create(20.0);
 
-    cout << a->value << endl;
-
+    
     for (int i = 0; i < 10; i++)
     {
         insert(i, a);
