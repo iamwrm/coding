@@ -159,7 +159,7 @@ int matin[3][3] = {
 
 	// 将数组写入txt
 	writein(fp, arr);
-	getchar();
+	// getchar();
 	//close file
 	fclose(fp);
 	return 0;
