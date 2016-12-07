@@ -9,28 +9,29 @@ mingw32  gcc version 4.9.2
 
 int num = 0;
 
-void p(int N, int lev, char *str)
+void swap(char &a, char &b)
 {
-    if (lev == N + 1)
+    int temp;
+    temp = a;
+    a = b;
+    b = temp;
+}
+
+void p(int N, int lev, char *array)
+{
+    if (lev == N )
     {
         for (int i = 0; i < N; i++)
-            printf("%c", *(str + i));
+            printf("%c", *(array + i));
         printf("----%d\n", ++num);
         return;
     }
 
-    for (int i = lev - 1; i < N; i++)
+    for (int i = lev-1; i < N; i++)
     {
-        char temp;
-        temp = *(str);
-        *(str) = *(str + i);
-        *(str + i) = temp;
-
-        p(N, lev + 1, str);
-
-        temp = *(str);
-        *(str) = *(str + i);
-        *(str + i) = temp;
+        swap(*(array + lev - 1), *(array + i));
+        p(N, lev + 1, array);
+        swap(*(array + lev - 1), *(array + i));
     }
 }
 
