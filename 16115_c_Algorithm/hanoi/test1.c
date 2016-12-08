@@ -96,7 +96,7 @@ int main()
 {
     int *a;
     timess=0;
-    const int N = 6;
+    const int N = 3;
     a = (int *)malloc(N * sizeof(int));
 
     int i;
