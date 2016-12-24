@@ -12,7 +12,7 @@ launch.json
 tasks.json
 
 
-# Bah, LaTeX junk
+# LaTeX junk
 *.aux
 *.log
 *.synctex.gz
@@ -23,3 +23,10 @@ tasks.json
 *.bbl
 *.blg
 *.bib
+
+# clion project
+
+.idea/
+CMakeLists.txt
+cmake-build-debug/
+
