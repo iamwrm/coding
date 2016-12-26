@@ -114,29 +114,40 @@ string Decode(const string &sCode)
     vector<char> vc;
     vector<string> vs;
 
-    char temp;
     string temps;
 
-    while (f_code_in >> temp)
-    {
-        vc.push_back(temp);
-        f_code_in >> temp;
-        f_code_in >> temps;
-        vs.push_back(temps);
-    }
-    vs[0] ="110";
-    vc[0] = ' ';
 
-    for (auto it = vc.begin(); it != vc.end(); it++)
+    while (getline(f_code_in, temps, ':'))
     {
-        cout << *(it) << "===:===" << vs[it - vc.begin()] << endl;
+        vc.push_back(temps[0]);
+
+
+        getline(f_code_in, temps);
+        // attention! the end of string temps is '\n'
+        // so we need to pop_back
+        // getline(f_code_in,temps,'\n');  is not acceptable for cmake
+        temps.pop_back();
+        vs.push_back(temps);
+
+
+//        cout<<vc.back()<<"|"<<vs.back()<<endl;
+
+        string tempcc;
+        tempcc=vs.back();
+        for(auto it=tempcc.begin();it!=tempcc.end();++it)
+        {
+//            cout<<(int)(*it)<<"\\";
+        }
+//        cout<<endl;
+
     }
+
 
     string scode(sCode);
 
     string decoded = "";
 
-    cout << scode << endl;
+//    cout << scode << endl;
 
 
     while (scode.size() > 0)
@@ -148,8 +159,8 @@ string Decode(const string &sCode)
                 if (scode.substr(0, i) == vs[j])
                 {
 
-                    decoded=decoded+vc[j];
-                    scode.erase(0,i);
+                    decoded = decoded + vc[j];
+                    scode.erase(0, i);
                     i = 1;
                     break;
                 }
