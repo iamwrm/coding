@@ -11,6 +11,7 @@ std::string uint8ToBin(int x);
 
 std::string FileToString(std::string sFileName);
 
+string Decode(const string &sCode);
 
 int main()
 {
@@ -30,7 +31,7 @@ int main()
 
 
 // Test Decode
-//    cout << Decode(sCode) << endl;
+    cout << Decode(sCode) << endl;
 
 
     return 0;
@@ -81,6 +82,7 @@ std::string FileToString(std::string sFileName)
         v1.push_back(temp);
     }
 
+    f_in_b.close();
     string converted = "";
 
     int i = 0;
@@ -105,3 +107,55 @@ std::string FileToString(std::string sFileName)
     return converted;
 }
 
+
+string Decode(const string &sCode)
+{
+    fstream f_code_in("P5-HuffmanCode.txt", ios::in);
+    vector<char> vc;
+    vector<string> vs;
+
+    char temp;
+    string temps;
+
+    while (f_code_in >> temp)
+    {
+        vc.push_back(temp);
+        f_code_in >> temp;
+        f_code_in >> temps;
+        vs.push_back(temps);
+    }
+    vs[0] ="110";
+    vc[0] = ' ';
+
+    for (auto it = vc.begin(); it != vc.end(); it++)
+    {
+        cout << *(it) << "===:===" << vs[it - vc.begin()] << endl;
+    }
+
+    string scode(sCode);
+
+    string decoded = "";
+
+    cout << scode << endl;
+
+
+    while (scode.size() > 0)
+    {
+        for (int i = 1; i <= scode.size(); i++)// 1-i bit of the string
+        {
+            for (int j = 0; j < vs.size(); j++)
+            {
+                if (scode.substr(0, i) == vs[j])
+                {
+
+                    decoded=decoded+vc[j];
+                    scode.erase(0,i);
+                    i = 1;
+                    break;
+                }
+            }
+        }
+    }
+
+    return decoded;
+}
