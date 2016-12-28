@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <string>
 
 
 using namespace std;
@@ -68,7 +67,7 @@ std::string uint8ToBin(int x)
 
 std::string FileToString(std::string sFileName)
 {
-// f77a d00a 070a
+//   f77a d00a 070a
     fstream f_in_b(sFileName, ios::binary | ios::in);
     string file_string;
 
