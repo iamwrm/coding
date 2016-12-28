@@ -73,7 +73,7 @@ int main()
     Mycom m1;
 
     m1.show();
-
+    m1.setRE(1).setIM(2).valueDouble().valueHalf().valueTriple().show();
 
     std::cout << "Hello, World!" << std::endl;
     return 0;
