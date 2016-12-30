@@ -21,14 +21,14 @@ private:
 public:
     myPoly(string namein)
     {
-        name=namein;
+        name = namein;
         powMy.push_back(0);
         coeMy.push_back(0);
     }
 
-    void showAll();
+    myPoly showAll();
 
-    void assign(int pow, double coe);
+    myPoly assign(int pow, double coe);
 };
 
 
@@ -37,22 +37,15 @@ int main()
     myPoly m1("m1");
     m1.showAll();
 
-    m1.assign(8, -2.33);
-    m1.showAll();
+    m1.assign(8, -2.33).showAll().assign(18, 2.22222).showAll();;
 
-
-    m1.assign(18, 2.22222);
-    m1.showAll();
-
-    m1.assign(21, 123);
-    m1.showAll();
 
     return 0;
 }
 
-void myPoly::showAll()
+myPoly myPoly::showAll()
 {
-    cout<<name<<": ";
+    cout << name << ": ";
     for (auto it = powMy.begin(); it != powMy.end(); ++it)
     {
         auto dev = it - powMy.begin();
@@ -60,12 +53,12 @@ void myPoly::showAll()
 
         if (*(it) != 0)
         {
-            if ((coeMy[dev] > 0)&&(dev!=0))
+            if ((coeMy[dev] > 0) && (dev != 0))
             {
                 cout << " +";
             }
 
-            if ((coeMy[dev] < 0)&&(dev!=0))
+            if ((coeMy[dev] < 0) && (dev != 0))
             {
                 cout << " ";
             }
@@ -76,22 +69,22 @@ void myPoly::showAll()
             if ((powMy.size() == 1) && (coeMy[0] == 0))
             {
                 cout << coeMy[0] << endl;
-                return;
+                return *this;
             }
             cout << " +" << coeMy[dev];
         }
     }
     cout << endl;
-    return;
+    return *this ;
 }
 
-void myPoly::assign(int pow, double coe)
+myPoly myPoly::assign(int pow, double coe)
 {
 
     if (pow < 0)
     {
         cout << "\nerror! negative power\n";
-        return;
+        return *this;
     }
 
     int FLAG = 1;
@@ -133,5 +126,7 @@ void myPoly::assign(int pow, double coe)
         // end sort
 
     }
+
+    return *this;
 
 }
