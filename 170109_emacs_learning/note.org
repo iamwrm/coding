@@ -1,3 +1,32 @@
+
+==================
+Open the tutorial:
+C-h t 
+
+The notes taken during the tutorial
+
+        C-v     向前移动一屏
+        M-v     向后移动一屏
+        C-l     重绘屏幕，并将光标所在行置于屏幕的中央
+
+主键盘区，然后使用 C-p 、 C-b 、 C-f 和 C-n 这四个命令。它们的功能和方
+
+
+请注意 C-f 、C-b 和 M-f 、M-b 两对之间的类比关系。通常的惯例是：META 系
+列组合键用来操作“由语言定义的单位（比如词、句子、段落）”，而 CONTROL
+系列组合键用来操作“与语言无关的基本单位（比如字符、行等等）”。
+
+        C-a     移动到行首
+        C-e     移动到行尾
+
+先输入 C-u，然后输入数字作为参数，最后再输入命令。
+
+
+
+
+
+==================
+
 Emacs is a self documental system.
 Use commands below to find out the key bindings.
 C-h + k/v/f
