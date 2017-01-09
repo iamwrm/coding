@@ -17,11 +17,9 @@ class myPoly
 private:
     vector<int> powMy;
     vector<double> coeMy;
-    string name;
 public:
-    myPoly(string namein)
+    myPoly()
     {
-        name = namein;
         powMy.push_back(0);
         coeMy.push_back(0);
     }
@@ -30,22 +28,17 @@ public:
 
     myPoly &assign(int pow, double coe);
 
-    myPoly operator+(myPoly other);
+    myPoly operator+(myPoly other) const;
 
+    myPoly &add(int pow, double coe);
 
-    myPoly setname(string namein)
-    {
-        name = namein;
-        return *this;
-    }
-
-    myPoly &operator*(myPoly other);
+    myPoly operator*(myPoly other)const ;
 };
 
 
 int main()
 {
-    myPoly m1("m1"), m2("m2");
+    myPoly m1, m2;
 
     m1.assign(1, 1.1).assign(3, 3.3).assign(5, 5.5).showAll();
     m2.assign(2, 2.2).assign(4, 4.4).assign(6, 6.6).showAll();
@@ -56,12 +49,25 @@ int main()
     m1.showAll();
     m2.showAll();
     m2 = m2 + m1;
+
+    m2.showAll();
+
+    cout << "----------------\n";
+
+    myPoly mm1, mm2, mm3;
+
+    mm1.assign(1, 1).add(0, -1).showAll();
+    mm2.add(1, 1).add(0, -2).showAll();
+
+//    mm3 = mm1 * mm2;
+    mm3 = mm1 + mm2;
+    mm3.showAll();
+
     return 0;
 }
 
 myPoly &myPoly::showAll()
 {
-    cout << name << ": ";
 
     for (auto it = powMy.begin(); it != powMy.end(); ++it)
     {
@@ -88,7 +94,9 @@ myPoly &myPoly::showAll()
                 cout << coeMy[0] << endl;
                 return *this;
             }
-            cout << " +" << coeMy[dev];
+            if (coeMy[dev] >= 0) cout << " +";
+            else cout << " ";
+            cout << coeMy[dev];
         }
     }
     cout << endl;
@@ -153,8 +161,10 @@ myPoly &myPoly::assign(int pow, double coe)
 
 }
 
-myPoly myPoly::operator+(const myPoly other)
+myPoly myPoly::operator+(const myPoly other) const
 {
+    myPoly tempmp;
+
     for (int i = 0; i < other.powMy.size(); i++)
     {
         int has_assigned = 0;
@@ -165,9 +175,8 @@ myPoly myPoly::operator+(const myPoly other)
         {
             if (this->powMy[j] == temppow)
             {
-//                coeMy[j] += tempcoe;
-                tempcoe += coeMy[j];
-                assign(other.powMy[i], tempcoe);
+                tempcoe += this->coeMy[j];
+                tempmp.assign(other.powMy[i], tempcoe);
                 has_assigned = 1;
             }
 
@@ -175,19 +184,38 @@ myPoly myPoly::operator+(const myPoly other)
 
         if (has_assigned == 0)
         {
-            assign(other.powMy[i], other.coeMy[i]);
+            tempmp.assign(other.powMy[i], other.coeMy[i]);
         }
 
     }
 
 
-    return *this;
+    return tempmp;
 
 }
 
-myPoly &myPoly::operator*(myPoly other)
+myPoly myPoly::operator*(myPoly other)const
 {
-    return myPoly(__1::basic_string<char, char_traits<char>, allocator<char>>());
+    myPoly temp;
+    for (int i = 0; i < other.powMy.size(); i++)
+    {
+        for (int j = 0; j < this->powMy.size(); ++j)
+        {
+            int temppow = other.powMy[i] + this->powMy[j];
+            double tempcoe = other.coeMy[i] * this->coeMy[j];
+            temp.add(temppow, tempcoe);
+        }
+    }
+
+    return temp;
+}
+
+myPoly &myPoly::add(int pow, double coe)
+{
+    myPoly temp;
+    temp.assign(pow, coe);
+    *this = *this + temp;
+    return *this;
 }
 
 
