@@ -134,7 +134,7 @@ int main()
 			arr[i][j] = ' ';
 		}
 	}
-	
+
 
 
 	int matin[3][3] = {

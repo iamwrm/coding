@@ -30,3 +30,17 @@ The notes taken during the tutorial
 Emacs is a self documental system.
 Use commands below to find out the key bindings.
 C-h + k/v/f
+
+
+
+SPC t n   line number
+SPC t r   相对行号
+
+
+
+
+
+
+
+
+
