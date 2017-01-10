@@ -36,11 +36,18 @@ C-h + k/v/f
 SPC t n   line number
 SPC t r   相对行号
 
+SPC '     open shell
 
+SPC f t   file tree
 
+SPC f r   file history
 
+SPC n f   Focus and reset
+SPC n w   
 
+SPC v     Expand
 
+SPC g t   Git time machine
 
 
 
