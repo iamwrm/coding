@@ -20,9 +20,9 @@ C-h t
 先输入 C-u，然后输入数字作为参数，最后再输入命令。
 ** Search in emacs about k/v/f 
 C-h + k/v/f
-k: keybindings
-v:
-f: functions
+k: keybinding
+v: varaible
+f: function
 ** Some separated useful key bindings 
 *** toggle somethings
 SPC t n   line number
@@ -48,6 +48,16 @@ C h n     <unknown>
 ** org-mode
 c-c c-t   toggle TODO status
 '*' to indicate level
+
+** TODO Setup c/cpp IDE with Spacemacs
+I need to figure how to cofigure an
+IDE (portable to some extends) with
+spacemacs build-in layers
+*** watch spacemacs rocks on youku
+    http://book.emacs-china.org/
+
+
+
 
 
 
