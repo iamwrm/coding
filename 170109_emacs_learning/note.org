@@ -1,10 +1,8 @@
-
-==================
-Open the tutorial:
+* Emacs learning notes
+** Emacs embedded tutorial
+*** Open the tutorial:
 C-h t 
-
-The notes taken during the tutorial
-
+*** Basic movements
         C-v     向前移动一屏
         M-v     向后移动一屏
         C-l     重绘屏幕，并将光标所在行置于屏幕的中央
@@ -15,39 +13,41 @@ The notes taken during the tutorial
 请注意 C-f 、C-b 和 M-f 、M-b 两对之间的类比关系。通常的惯例是：META 系
 列组合键用来操作“由语言定义的单位（比如词、句子、段落）”，而 CONTROL
 系列组合键用来操作“与语言无关的基本单位（比如字符、行等等）”。
-
+*** line movements
         C-a     移动到行首
         C-e     移动到行尾
-
+*** multitime movements
 先输入 C-u，然后输入数字作为参数，最后再输入命令。
-
-
-
-
-
-==================
-
-Emacs is a self documental system.
-Use commands below to find out the key bindings.
+** Search in emacs about k/v/f 
 C-h + k/v/f
-
-
-
+k: keybindings
+v:
+f: functions
+** Some separated useful key bindings 
+*** toggle somethings
 SPC t n   line number
 SPC t r   相对行号
-
+*** files
+SPC f t   file tree
+SPC f r   file history
+*** others
 SPC '     open shell
 
-SPC f t   file tree
-
-SPC f r   file history
-
 SPC n f   Focus and reset
+
 SPC n w   
 
 SPC v     Expand
 
 SPC g t   Git time machine
+
+Ctrl h m  show present minor mode
+
+C h n     <unknown>
+
+** org-mode
+c-c c-t   toggle TODO status
+'*' to indicate level
 
 
 
