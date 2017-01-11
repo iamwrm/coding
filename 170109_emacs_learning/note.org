@@ -1,71 +1,90 @@
 
+
 ** Emacs embedded tutorial
-*** Open the tutorial:
-C-h t 
-*** Basic movements
-        C-v     向前移动一屏
-        M-v     向后移动一屏
-        C-l     重绘屏幕，并将光标所在行置于屏幕的中央
-
-主键盘区，然后使用 C-p 、 C-b 、 C-f 和 C-n 这四个命令。它们的功能和方
-
-
-请注意 C-f 、C-b 和 M-f 、M-b 两对之间的类比关系。通常的惯例是：META 系
+- Open the tutorial:
+  C-h t 
+- line movements
+  C-a     移动到行首
+  C-e     移动到行尾
+- multitime movements
+  先输入 C-u，然后输入数字作为参数，最后再输入命令。
+- Search in emacs about k/v/f 
+   C-h + k/v/f
+   k: keybinding
+   v: varaible
+   f: function
+- Basic movements
+  C-v     向前移动一屏
+  M-v     向后移动一屏
+  C-l     重绘屏幕，并将光标所在行置于屏幕的中央主键盘区
+  C-p 、 C-b 、 C-f 和 C-n 
+  
+  请注意 C-f 、C-b 和 M-f 、M-b 两对之间的类比关系。通常的惯例是：META 系
 列组合键用来操作“由语言定义的单位（比如词、句子、段落）”，而 CONTROL
 系列组合键用来操作“与语言无关的基本单位（比如字符、行等等）”。
-*** line movements
-        C-a     移动到行首
-        C-e     移动到行尾
-*** multitime movements
-先输入 C-u，然后输入数字作为参数，最后再输入命令。
-** Search in emacs about k/v/f 
-C-h + k/v/f
-k: keybinding
-v: varaible
-f: function
+
+
+c-x 1 只保留一个窗口
+c-x 2 向上分
+c-x 3 向右分
+
+
+
 ** Some separated useful key bindings
-*** toggle somethings
-SPC t n   line number
-SPC t r   相对行号
-*** files
-SPC f t   file tree
-SPC f r   file history
-*** others
-SPC '     open shell
-
-SPC n f   Focus and reset
-
-SPC n w   
-
-SPC v     Expand
-
-SPC g t   Git time machine
-
-Ctrl h m  show present minor mode
-
-C h n     <unknown>
-
-** TODO Setup c/cpp IDE with Spacemacs
-I need to figure how to cofigure an
-IDE (portable to some extends) with
-spacemacs build-in layers
-*** watch spacemacs rocks on youku
+- toggle somethings
+  SPC t n   line number
+  SPC t r   相对行号
+- files
+  SPC f t   file tree
+  SPC f r   file history
+- others
+  SPC '     open shell
+  
+  SPC n f   Focus and reset
+  SPC n w   
+  
+  SPC v     Expand
+  
+  SPC g t   Git time machine
+  
+  Ctrl h m  show present minor mode
+  
+  C h n     <unknown>
+  
+** TODO Setup c/cpp IDE with Spacremacs
+   I need to figure how to cofigure an
+   IDE (portable to some extends) with
+   spacemacs build-in layers
+*** DONE watch spacemacs rocks on youku
+    CLOSED: [2017-01-11 Wed 20:36]
+    ;To many details, not what I want.
+    
+** TODO search for useful things on 中国emacs社区
     http://book.emacs-china.org/
+
 ** org-mode
- c-c c-t   toggle TODO status
- '*' to indicate level
+   c-c c-t   toggle TODO status
+   '*' to indicate level
 
-- tab
-  Shift tab
-shift- right/left
-to switch the TODO/DONE label
+   tab
+   Shift tab
+   shift- right/left
+   to switch the TODO/DONE label
+  
+   meta - up/down/left/right
+   to move the session
 
-meta - up/down/left/right
-to move the session
+   c-c c-s schedule
+   c-c c-d deadline
+   
+** Script
 
+<s+tab      do the thing below quickly 
 
+#+BEGIN_SRC 
 
-
-
+#+END_SRC
+   
+   
  
 
