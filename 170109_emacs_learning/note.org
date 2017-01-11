@@ -1,4 +1,4 @@
-* Emacs learning notes
+
 ** Emacs embedded tutorial
 *** Open the tutorial:
 C-h t 
@@ -23,7 +23,7 @@ C-h + k/v/f
 k: keybinding
 v: varaible
 f: function
-** Some separated useful key bindings 
+** Some separated useful key bindings
 *** toggle somethings
 SPC t n   line number
 SPC t r   相对行号
@@ -45,19 +45,27 @@ Ctrl h m  show present minor mode
 
 C h n     <unknown>
 
-** org-mode
-c-c c-t   toggle TODO status
-'*' to indicate level
-
 ** TODO Setup c/cpp IDE with Spacemacs
 I need to figure how to cofigure an
 IDE (portable to some extends) with
 spacemacs build-in layers
 *** watch spacemacs rocks on youku
     http://book.emacs-china.org/
+** org-mode
+ c-c c-t   toggle TODO status
+ '*' to indicate level
+
+- tab
+  Shift tab
+shift- right/left
+to switch the TODO/DONE label
+
+meta - up/down/left/right
+to move the session
 
 
 
 
 
+ 
 
