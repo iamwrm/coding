@@ -88,3 +88,8 @@ c-x 3 向右分
    
  
 
+
+* Prepare my own emacs
+
+m-x customize-group
+
