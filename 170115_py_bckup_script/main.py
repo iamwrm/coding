@@ -15,6 +15,7 @@ def my_backup(filename):
     backupZIP.write(filename)
 
     backupZIP.close()
+    print(filename+" backup into "+back_up_file+" succeeded!")
 
 
 
