@@ -1,4 +1,5 @@
 // NOTE: compile with g++ filename.cpp -std=c++11
+// NOTE: MathPic1.ppm
 
 #ifndef IMA_H
 #define IMA_H
@@ -12,8 +13,6 @@
 #define _cr(x) (unsigned char)(pow((x),1.0/3.0)) // cube root
 #endif
 
-#include"m1.cpp"
-
 unsigned char GR(int,int);
 unsigned char BL(int,int);
 unsigned char RD(int,int);
@@ -22,7 +21,7 @@ unsigned char RD(int,int);
 void pixel_write(int,int);
 FILE *fp;
 int main(){
-  fp = fopen("MathPic.ppm","wb");
+  fp = fopen("pic/MathPic1.ppm","wb");
   fprintf(fp, "P6\n%d %d\n255\n", DIM, DIM);
   for(int j=0;j<DIM;j++)
     for(int i=0;i<DIM;i++)
@@ -36,4 +35,16 @@ void pixel_write(int i, int j){
   color[1] = GR(i,j)&255;
   color[2] = BL(i,j)&255;
   fwrite(color, 1, 3, fp);
+}
+
+unsigned char RD(int i,int j){
+  return (char)(_sq(cos(atan2(j-512,i-512)/2))*255);
+}
+
+unsigned char GR(int i,int j){
+  return (char)(_sq(cos(atan2(j-512,i-512)/2-2*acos(-1)/3))*255);
+}
+
+unsigned char BL(int i,int j){
+  return (char)(_sq(cos(atan2(j-512,i-512)/2+2*acos(-1)/3))*255);
 }
