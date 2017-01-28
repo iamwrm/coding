@@ -21,7 +21,7 @@ void pixel_write(int, int);
 FILE *fp;
 int main()
 {
-  fp = fopen("pic/MathPic4.ppm", "wb");
+  fp = fopen("pic/MathPic5.ppm", "wb");
   fprintf(fp, "P6\n%d %d\n255\n", DIM, DIM);
   for (int j = 0; j < DIM; j++)
     for (int i = 0; i < DIM; i++)
@@ -39,27 +39,21 @@ void pixel_write(int i, int j)
 }
 unsigned char RD(int i, int j)
 {
-  static double k;
-  k += rand() / 1. / RAND_MAX;
-  int l = k;
-  l %= 512;
-  return l > 255 ? 511 - l : l;
+  float s = 3. / (j + 99);
+  float y = (j + sin((i * i + _sq(j - 700) * 5) / 100. / DIM) * 35) * s;
+  return (int((i + DIM) * s + y) % 2 + int((DIM * 2 - i) * s + y) % 2) * 127;
 }
 
 unsigned char GR(int i, int j)
 {
-  static double k;
-  k += rand() / 1. / RAND_MAX;
-  int l = k;
-  l %= 512;
-  return l > 255 ? 511 - l : l;
+  float s = 3. / (j + 99);
+  float y = (j + sin((i * i + _sq(j - 700) * 5) / 100. / DIM) * 35) * s;
+  return (int(5 * ((i + DIM) * s + y)) % 2 + int(5 * ((DIM * 2 - i) * s + y)) % 2) * 127;
 }
 
 unsigned char BL(int i, int j)
 {
-  static double k;
-  k += rand() / 1. / RAND_MAX;
-  int l = k;
-  l %= 512;
-  return l > 255 ? 511 - l : l;
+  float s = 3. / (j + 99);
+  float y = (j + sin((i * i + _sq(j - 700) * 5) / 100. / DIM) * 35) * s;
+  return (int(29 * ((i + DIM) * s + y)) % 2 + int(29 * ((DIM * 2 - i) * s + y)) % 2) * 127;
 }
