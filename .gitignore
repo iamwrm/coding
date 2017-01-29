@@ -5,11 +5,6 @@
 
 *.exe
 
-# visual studio code configurations
-launch.json
-tasks.json
-
-
 # LaTeX junk
 *.aux
 *.log
