@@ -201,7 +201,7 @@ int judge(int *points, int my_input, int side) // white is player 1; black is th
         }
     }
     //below
-    for (i = 1; (i <= 8 - my_input % 8-1 ) && (my_input + i <= 64); i++)
+    for (i = 1; (i <= 8 - my_input % 8 - 1) && (my_input + i <= 64); i++)
     {
         if (points[my_input + i] == 0)
             break;
@@ -219,7 +219,7 @@ int judge(int *points, int my_input, int side) // white is player 1; black is th
         }
     }
     //right
-    for (i = 1; (i <= my_input % 8 ) && (my_input - i >= 0); i++)
+    for (i = 1; (i <= my_input % 8) && (my_input - i >= 0); i++)
     {
         if (points[my_input - i] == 0)
             break;
@@ -273,7 +273,7 @@ int judge(int *points, int my_input, int side) // white is player 1; black is th
         }
     } //right above
 
-    for (i = 1; (i <= my_input % 8 ) && (my_input - 9 * i >= 0); i++)
+    for (i = 1; (i <= my_input % 8) && (my_input - 9 * i >= 0); i++)
     {
         if (points[my_input - 9 * i] == 0)
             break;
@@ -291,7 +291,7 @@ int judge(int *points, int my_input, int side) // white is player 1; black is th
         }
     }
     //left above
-    for (i = 1; i <= my_input % 8 ; i++)
+    for (i = 1; i <= my_input % 8; i++)
     {
         if (points[my_input + 7 * i] == 0)
             break;
@@ -310,7 +310,7 @@ int judge(int *points, int my_input, int side) // white is player 1; black is th
     }
     //left below
 
-    if ((valid == 0))
+    if (valid == 0)
         points[my_input] = 0;
 
     return valid;
@@ -386,4 +386,5 @@ int ai(int *points)
         printf("white wins");
     if (cal2 > cal1)
         printf("black wins");
+    return 0;
 }
