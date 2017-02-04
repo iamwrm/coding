@@ -2,10 +2,13 @@
 # -*- coding: utf-8 -*-
 
 
-def bubble_sort(arr, head, end):
-    for index in range(head, end):
+def bubble_sort(arr):
+    for i in [0:len(arr)]:
+        print(arr[i])
 
 
-arr = [1, 2, 3, 4, 3, 2, 1, 5, 3, 2, 4, 5, 3, 2, 2]
+arr1 = [10, 23, 1, 53, 654, 54, 16, 646, 65, 3155, 546, 31]
 
-bubble_sort(arr, 2, 4)
+bubble_sort(arr1)
+
+print(arr1)

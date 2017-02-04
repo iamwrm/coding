@@ -1,0 +1,8 @@
+
+
+* range function
+the range function doesn't contain the latter index  
+
+range(1,2) ==> [1]
+
+range(3) ==> 0,1,2
