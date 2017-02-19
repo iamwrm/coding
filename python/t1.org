@@ -1,0 +1,199 @@
+ Liao's Python tutorial
+
+* Basic syntax
+** variable assignment
+*** deep copy
+#+BEGIN_SRC python :results output
+  import copy
+  a1=[1,2]
+  a2=copy.deepcopy(a1)
+  a2.append(3)
+  print(a1)
+  print(a2)
+  print("-----")
+  b1=[1,2]
+  b2=b1
+  b2.append(3)
+  print(b1)
+  print(b2)
+#+END_SRC
+
+#+RESULTS:
+: [1, 2]
+: [1, 2, 3]
+: -----
+: [1, 2, 3]
+: [1, 2, 3]
+
+** comment
+#+BEGIN_SRC python :results output
+#one line commnet
+#+END_SRC
+
+** data type
+   integer
+   float
+*** string
+
+ #+BEGIN_SRC python :results output
+   print("anything")
+   print('anything')
+   print(r'\n\n\n\n') 
+   print('''multi
+   ple line
+   input''')
+ #+END_SRC
+
+*** bool
+ #+BEGIN_SRC python :results output
+   a=True
+   b=False
+   print("1:",a+b)
+   print("2:",a*b)
+   print("3:",a,b)
+   if a==3:
+      print("a==3") 
+   if a!=3:
+      print("a!=3")
+   if a==1:
+      print("a==1")
+ #+END_SRC
+
+ #+RESULTS:
+ : 1: 1
+ : 2: 0
+ : 3: True False
+ : a!=3
+ : a==1
+
+
+#+BEGIN_SRC python :results output
+   a=True
+   b=False
+   print(a and b)
+   print(a or b)
+   print(not a)
+#+END_SRC
+
+#+RESULTS:
+: False
+: True
+: False
+
+*** division
+#+BEGIN_SRC python :results output
+print(3/4)
+print(1/6)
+print(10//3)
+#+END_SRC
+
+#+RESULTS:
+: 0.75
+: 0.16666666666666666
+: 3
+
+** string and encoding
+   #+BEGIN_SRC python
+   chr()
+   ord()
+   #+END_SRC
+   #+BEGIN_SRC python :results output
+     a='a'
+     print(ord(a))
+     for i in range(1,11):
+         a+=chr(ord(a[0])+i)
+     print(a)
+   #+END_SRC
+
+   #+RESULTS:
+   : 97
+   : abcdefghijk
+
+** error
+#+BEGIN_SRC python :results output
+  a=10
+  if (a<20):
+      raise TypeError('aaaaa')
+#+END_SRC
+
+#+RESULTS:
+
+if an error is raised, there will not be results
+
+** functions 
+*** recursive
+#+BEGIN_SRC python :results output 
+  def fact(x):
+        if x ==1:
+            return 1
+        else :
+            return x*fact(x-1)
+
+  def count_zero(x):
+  #用来计数阶乘数的末尾0的函数
+        count=0;
+        result=fact(x)
+        while result % 10==0:
+            count+=1
+            result/=10
+        return count
+
+  for i in range(10,20,1):
+        print(count_zero(i))
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+2
+2
+2
+2
+2
+3
+3
+3
+3
+3
+#+end_example
+
+** Advanced properties
+*** slices
+#+BEGIN_SRC python :results output
+  a=list(range(0,20,3))
+  print(a)
+  print(a[0:2])
+  print("gap=4",a[0:6:4])
+  print(a[-7:-4])
+  print(a[-2:3])
+#+END_SRC
+
+#+RESULTS:
+: [0, 3, 6, 9, 12, 15, 18]
+: [0, 3]
+: gap=4 [0, 12]
+: [0, 3, 6]
+: []
+
+**** string as slices 
+#+BEGIN_SRC python :results output
+  a='abcdefg' 
+  for i in range(10):
+      a.append()
+#+END_SRC
+
+
+*** 列表生成式
+#+BEGIN_SRC python :results output
+  print([2*x for x in range(10)]) 
+  print([x+y+z for x in 'ABC' for y in 'DEF' for z in 'GHI'])
+#+END_SRC
+
+#+RESULTS:
+: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+: ['ADG', 'ADH', 'ADI', 'AEG', 'AEH', 'AEI', 'AFG', 'AFH', 'AFI', 'BDG', 'BDH', 'BDI', 'BEG', 'BEH', 'BEI', 'BFG', 'BFH', 'BFI', 'CDG', 'CDH', 'CDI', 'CEG', 'CEH', 'CEI', 'CFG', 'CFH', 'CFI']
+
+
+
+
+
+
