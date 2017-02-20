@@ -1,0 +1,6 @@
+language: cpp
+compiler: 
+  - gcc
+
+script: 
+   - g++ /16projects/lab7_cubes/main.cpp -o /16projects/lab7_cubes/main && ./16projects/lab7_cubes/main
