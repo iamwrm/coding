@@ -3,5 +3,5 @@ compiler:
   - gcc
 
 script: 
-   - g++ ./16projects/lab7_cubes/main.cpp -o /16projects/lab7_cubes/main && ./16projects/lab7_cubes/main
-   - python3 /python/t1.py
+   - cd 16projects/lab7_cubes && g++ main.cpp -o main && ./main && cd ../..
+   - cd 170127_cpp_image/scr/ && g++ main1.cpp -o main1 && ./main1 && cd ../..
