@@ -4,4 +4,3 @@ compiler:
 
 script: 
    - cd 16projects/lab7_cubes && g++ main.cpp -o main && ./main && cd ../..
-   - cd 170127_cpp_image/scr/ && g++ main1.cpp -o main1 && ./main1 && cd ../..
