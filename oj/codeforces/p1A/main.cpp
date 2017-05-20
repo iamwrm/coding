@@ -11,7 +11,28 @@ int main()
     cin >> n;
     cin >> a;
 
-    cout << (m / a + 1) * (n / a + 1);
+    long long int ma, mb;
+    if (m % a == 0)
+    {
+        ma = (m / a);
+    }
+    else
+    {
+        ma = (m / a + 1);
+    }
+    mb = ma;
+
+    m = n;
+    if (m % a == 0)
+    {
+        ma = (m / a);
+    }
+    else
+    {
+        ma = (m / a + 1);
+    }
+
+    cout << ma * mb;
 
     return 0;
 }
