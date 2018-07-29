@@ -119,9 +119,12 @@ string Decode(const string &sCode)
     while (getline(f_code_in, temps, ':'))
     {
         vc.push_back(temps[0]);
+        cout << temps<<endl;
 
 
         getline(f_code_in, temps);
+        cout << temps<<endl;
+
         // attention! the end of string temps is '\n'
         // so we need to pop_back
         // getline(f_code_in,temps,'\n');  is not acceptable for cmake
@@ -135,7 +138,7 @@ string Decode(const string &sCode)
         tempcc=vs.back();
         for(auto it=tempcc.begin();it!=tempcc.end();++it)
         {
-//            cout<<(int)(*it)<<"\\";
+            //cout<<(int)(*it)<<"\\";
         }
 //        cout<<endl;
 

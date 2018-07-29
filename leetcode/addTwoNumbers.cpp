@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 struct ListNode
@@ -19,6 +20,7 @@ int main()
 {
     ListNode l1(1);
     ListNode l2(2);
+    vector<int> aaay9ouge;
 
     l2.next = &l1;
     cout << l2.next->val;
