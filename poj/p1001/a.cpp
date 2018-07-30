@@ -17,8 +17,6 @@ class LongNum {
 	void print();
 };
 
-LongNum LongNum::times(const LongNum &ln1) { return *this; }
-
 void LongNum::print()
 {
 	string output;
@@ -26,20 +24,27 @@ void LongNum::print()
 		output.push_back(digits[i]);
 	}
 
+	if (exp_pos > 0) {
+		output.insert(digits_num - exp_pos, 1, '.');
+	}
 	cout << endl << output << endl;
 }
 
-LongNum::~LongNum()
+LongNum::~LongNum() { delete[] digits; }
+
+LongNum LongNum::times(const LongNum &ln1)
 {
-	// delete[] digits;
+	LongNum temp = ln1;
+	return temp;
 }
 
 LongNum LongNum::exps(const int &expos)
 {
 	LongNum temp = *this;
-	for (int i = 0; i < expos; i++) {
-		temp = temp.times(*this);
-	}
+	/* for (int i = 0; i < expos; i++) {
+			temp = temp.times(*this);
+		}
+		*/
 	return temp;
 }
 
@@ -55,17 +60,16 @@ LongNum::LongNum(const string &ni)
 			break;
 		}
 	}
+
 	exp_pos = ni.size() - j - 1;
 
 	if (dot_found) {
-		local_ni.erase(j);
+		local_ni.erase(j, 1);
 	}
 
 	while (local_ni[0] == '0') {
 		local_ni = local_ni.substr(1);
 	}
-
-	cout << local_ni.size();
 
 	digits = new int[local_ni.size()];
 
@@ -82,7 +86,10 @@ int main(int argc, char const *argv[])
 	cin >> n1 >> e1;
 
 	LongNum templn(n1);
-	LongNum result = templn.exps(e1);
-	result.print();
+
+	// LongNum result = templn.exps(e1);
+	// TODO: exps function has bugs
+	templn.print();
+	// result.print();
 	return 0;
 }
